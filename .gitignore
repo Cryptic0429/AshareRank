@@ -1,0 +1,11 @@
+/.venv/
+__pycache__/
+*.pyc
+.env
+/data/
+/runs/
+.DS_Store
+logs/
+/.legacy-archive/
+/.agents/
+/skills-lock.json
