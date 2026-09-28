@@ -9,3 +9,5 @@ logs/
 /.legacy-archive/
 /.agents/
 /skills-lock.json
+/.site-publish/
+/.site-artifacts/

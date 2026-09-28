@@ -4,6 +4,12 @@ AshareRank Research is a reproducible research codebase for studying cross-secti
 
 The repository is organized around data lineage, controlled experiments, out-of-sample evaluation, and reproducible reports. It is not a trading product and does not place orders.
 
+## Project website
+
+[Visit the public website](https://asharerank-research.cryptic3036.chatgpt.site) · [中文](https://asharerank-research.cryptic3036.chatgpt.site/?lang=zh) · [English](https://asharerank-research.cryptic3036.chatgpt.site/?lang=en)
+
+The Chinese/English project presentation lives in [`website/`](website/README.md). It describes the research question, methods, model comparison and remaining limitations. It is separate from the Python research workflow and contains no live predictions or unverified performance results.
+
 ## Research workflow
 
 ```text

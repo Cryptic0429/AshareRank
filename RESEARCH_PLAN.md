@@ -45,7 +45,7 @@ Generated data and runs are ignored by Git. Commit only code, configs, protocol 
 
 ## Current state
 
-- **Repository direction:** research workflow; no active game, web API, or presentation UI.
+- **Repository direction:** research workflow, with a separate bilingual public project presentation in `website/`; no active game or web API.
 - **Core retained:** data providers, panel construction, features and labels, training adapters, baseline and deep models, alpha evaluation, and portfolio risk calculations.
 - **Current primary benchmark:** `scripts/research/run_benchmark.py` compares StockMixer, LightGBM, XGBoost, and LSTM using a shared evaluation layer.
 - **Known work before confirmatory claims:** distinguish historical constituents from current-universe backfills; complete provider-level provenance for every model branch; define and freeze one primary metric and cost assumptions.
@@ -59,3 +59,4 @@ Generated data and runs are ignored by Git. Commit only code, configs, protocol 
 |---|---|---|
 | 2026-09-23 | Make the repository a research codebase and remove the game, Streamlit UI, and FastAPI shell from the active project. | Focus on reproducibility and evidence rather than product presentation. |
 | 2026-09-23 | Use five-day A-share excess-return ranking as the working research question. | It connects the existing feature, model-comparison, and evaluation code into one testable line of inquiry. |
+| 2026-09-28 | Add a Chinese/English public project website and publish the repository on GitHub at the user's request. | Explain the research question, methodology and open limitations without presenting unconfirmed performance claims or changing the scientific workflow. |
