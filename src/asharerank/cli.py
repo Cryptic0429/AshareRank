@@ -13,6 +13,7 @@ _COMMANDS = {
     "fetch-fundamentals": "fetch_fundamentals.py",
     "build-dataset": "build_dataset.py",
     "benchmark": "run_benchmark.py",
+    "public-baselines": "run_public_baselines.py",
     "train-models": "train_models.py",
     "train-stockmixer": "train_stockmixer.py",
     "train-lstm": "train_lstm.py",
