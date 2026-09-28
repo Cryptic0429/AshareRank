@@ -1,7 +1,7 @@
 """Benchmark 子进程：训练对照 LSTM + 打分（内部脚本，勿单独使用）。
 
 由 `scripts/research/run_benchmark.py` 通过 `subprocess` 调用，刻意跑在独立进程里
-（本模块 import torch），原因见 `asharerank/predict/benchmark_stockmixer_step.py`
+（本模块 import torch），原因见 `asharerank/forecasting/benchmark_stockmixer_step.py`
 顶部注释。
 """
 from __future__ import annotations
@@ -18,7 +18,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from asharerank.predict.benchmark_lstm_step import run_lstm_step
+from asharerank.forecasting.benchmark_lstm_step import run_lstm_step
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 

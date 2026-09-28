@@ -1,0 +1,12 @@
+# StockMixer 训练/评估脚本依赖清单。
+# 本项目根目录 requirements.txt 已包含以下全部依赖，此文件仅作为
+# 该子模块的独立交付清单（例如把 asharerank/forecasting/experimental/stockmixer/
+# 拷贝到一个全新环境单独运行时可以直接 `pip install -r requirements.txt`）。
+
+akshare>=1.18          # A 股行情数据源（沪深300 成分股 + 前复权日线）
+pandas>=2.0
+numpy>=1.26
+scipy>=1.11             # scipy.stats.spearmanr 用于计算 RankIC
+torch>=2.2              # PyTorch，需 >=2.2 以获得较完善的 Apple Silicon MPS 算子覆盖
+tushare>=1.4.0          # 可选：行情数据备用源（akshare 限流/失败时自动降级已由项目共享层处理）
+pyarrow>=15.0           # 本地行情缓存使用 Parquet 存储

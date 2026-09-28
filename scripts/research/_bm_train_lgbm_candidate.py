@@ -1,7 +1,7 @@
 """内部脚本：训练"训练数据与 StockMixer 对齐"的 LightGBM 候选模型并注册。
 
 由 `scripts/research/train_lgbm_aligned.py` 通过 `subprocess` 调用，跑在独立进程里
-（不 import torch），原因见 `asharerank/predict/benchmark_stockmixer_step.py`
+（不 import torch），原因见 `asharerank/forecasting/benchmark_stockmixer_step.py`
 顶部注释。
 """
 from __future__ import annotations
@@ -14,7 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from asharerank.predict.benchmark_lgbm_step import train_aligned_candidate
+from asharerank.forecasting.benchmark_lgbm_step import train_aligned_candidate
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 

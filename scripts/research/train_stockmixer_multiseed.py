@@ -33,8 +33,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 import torch
 
-from asharerank.predict.experimental.stockmixer.config import StockMixerConfig
-from asharerank.predict.experimental.stockmixer.train import run_stockmixer_multiseed
+from asharerank.forecasting.experimental.stockmixer.config import StockMixerConfig
+from asharerank.forecasting.experimental.stockmixer.train import run_stockmixer_multiseed
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 

@@ -11,7 +11,7 @@ from asharerank.evaluation import evaluate_predictions
 from asharerank.models.registry import create_model, list_candidate_models
 from asharerank.prediction import build_prediction_frame, rank_predictions
 from asharerank.training import run_experiment
-from tests.panel.helpers import synthetic_panel
+from tests.research.helpers import synthetic_panel
 
 
 class ModelsAndEvaluationTests(unittest.TestCase):

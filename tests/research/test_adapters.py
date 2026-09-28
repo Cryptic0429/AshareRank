@@ -5,7 +5,7 @@ import unittest
 from asharerank.adapters import MasterAdapter, TabularAdapter
 from asharerank.config import ExperimentConfig
 from asharerank.data import build_common_dataset
-from tests.panel.helpers import synthetic_panel
+from tests.research.helpers import synthetic_panel
 
 
 class AdapterTests(unittest.TestCase):

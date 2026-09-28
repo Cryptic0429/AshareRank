@@ -12,7 +12,7 @@ from asharerank.config import ExperimentConfig, PANEL_STOCK_LIMIT, SUPPORTED_MOD
 from asharerank.data import build_common_dataset
 from asharerank.evaluation.comparison import compare_prediction_frames
 from asharerank.evaluation.report import save_comparison_report
-from asharerank.predict.universe import load_panel
+from asharerank.forecasting.universe import load_panel
 from asharerank.prediction import (
     add_risk_balance_groups,
     balanced_top_k,

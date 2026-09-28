@@ -1,7 +1,7 @@
 """列出 `runs/experiments/runs/index.json` 里记录的全部历史实验。
 
 覆盖式的 `{name}_report.json` 只保留最新一次结果；每次调用
-`asharerank/predict/experimental/report.py::save_report` 时，都会额外在
+`asharerank/forecasting/experimental/report.py::save_report` 时，都会额外在
 `runs/{run_id}/report.json` 存一份版本化快照，并把摘要 append 进
 `runs/index.json`——这个脚本就是读那份索引，按时间列出所有实验，方便横向
 对比"这周跑的第 5 版 XGBoost 对齐实验" vs "上周那版"。
@@ -19,7 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from asharerank.predict.experimental.report import load_run_index
+from asharerank.forecasting.experimental.report import load_run_index
 
 
 def _rank_ic(m: dict) -> float | None:

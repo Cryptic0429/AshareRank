@@ -8,7 +8,7 @@ from pydantic import ValidationError
 from asharerank.config import ExperimentConfig, MARKET_FEATURES, STOCK_FEATURES
 from asharerank.data import build_common_dataset, build_common_features
 from asharerank.schemas import CompareModelsRequest
-from tests.panel.helpers import synthetic_panel
+from tests.research.helpers import synthetic_panel
 
 
 class CommonDataTests(unittest.TestCase):

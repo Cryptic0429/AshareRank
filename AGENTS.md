@@ -11,7 +11,8 @@ This is research software, not a product. Do not add a game, dashboard, API serv
 ## Architecture boundaries
 
 - `src/asharerank/data_service.py` and `src/asharerank/settings.py`: provider access, local data paths, and runtime settings.
-- `src/asharerank/data/`, `features`, `predict/`, `models/`, `adapters/`, and `training/`: dataset construction and modeling.
+- `src/asharerank/data/`, `forecasting/`, `models/`, `adapters/`, and `training/`: dataset construction, forecast experiments, and model fitting.
+- `src/asharerank/prediction/`: prediction contracts, ranking, selection, and inference engines.
 - `src/asharerank/evaluation/` and `src/asharerank/risk/`: predictive metrics, portfolio evaluation, and risk analysis.
 - `scripts/research/`: reproducible command-line entry points. Keep orchestration thin; move reusable logic into `src/asharerank/`.
 - `configs/` (to be introduced when the CLI consumes file-based configs): committed experiment definitions. Never embed private credentials in configs.
@@ -48,6 +49,7 @@ This is research software, not a product. Do not add a game, dashboard, API serv
 - [x] Main research commands moved under `scripts/research/`.
 - [x] Add horizon-aware purging to the shared chronological split helper and the four-model primary benchmark paths.
 - [x] Audit all training and benchmark split implementations for horizon-aware purging; the shared rolling-window workflows now purge and record boundary dates.
+- [x] Separate forecast research workflows from prediction contracts and model-inference runtime namespaces.
 - [x] Add versioned run reports, environment manifests, and full CLI argument snapshots to the primary multi-model benchmark.
 - [ ] Extend consistent manifests and data provenance to every experiment command.
 - [x] Document the Windows setup and optional dependency installation paths.

@@ -13,7 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from asharerank.predict.experimental.industry_compare import run_industry_compare
+from asharerank.forecasting.experimental.industry_compare import run_industry_compare
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(message)s")

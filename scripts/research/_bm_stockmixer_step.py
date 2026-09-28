@@ -2,7 +2,7 @@
 
 由 `scripts/research/run_benchmark.py` 通过 `subprocess` 调用，刻意跑在独立进程里，
 避免和 LightGBM 那一步同进程导致 OpenMP 冲突 segfault（详见
-`asharerank/predict/benchmark_stockmixer_step.py` 顶部注释）。
+`asharerank/forecasting/benchmark_stockmixer_step.py` 顶部注释）。
 """
 from __future__ import annotations
 
@@ -18,8 +18,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from asharerank.predict.benchmark_stockmixer_step import run_stockmixer_step, run_stockmixer_step_multiseed
-from asharerank.predict.experimental.stockmixer.config import StockMixerConfig
+from asharerank.forecasting.benchmark_stockmixer_step import run_stockmixer_step, run_stockmixer_step_multiseed
+from asharerank.forecasting.experimental.stockmixer.config import StockMixerConfig
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 

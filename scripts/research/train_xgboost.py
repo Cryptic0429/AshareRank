@@ -13,7 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from asharerank.predict.experimental.xgboost_baseline import run_xgboost_baseline
+from asharerank.forecasting.experimental.xgboost_baseline import run_xgboost_baseline
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(message)s")

@@ -50,6 +50,7 @@ Generated data and runs are ignored by Git. Commit only code, configs, protocol 
 - **Current primary benchmark:** `scripts/research/run_benchmark.py` compares StockMixer, LightGBM, XGBoost, and LSTM using a shared evaluation layer.
 - **Known work before confirmatory claims:** distinguish historical constituents from current-universe backfills; complete provider-level provenance for every model branch; define and freeze one primary metric and cost assumptions.
 - **Refactor status:** the shared chronological split, primary four-model benchmark, and secondary rolling LightGBM/XGBoost/LSTM workflows purge five trading dates at the train/validation boundaries. Rolling reports now retain fold boundaries and excluded dates. Complete provider-level provenance remains open because existing local OHLCV caches do not consistently identify their original source.
+- **Package layout:** forecast dataset/model/benchmark workflows now live under `asharerank.forecasting`; prediction contracts and inference engines share `asharerank.prediction`, with model runtime code under `asharerank.prediction.inference`.
 - **Experiment status:** no new training run has been launched as part of this refactor.
 - **Setup status:** the README documents the Windows PowerShell setup and optional `data`, `tree`, `deep`, and `dev` dependency groups; installation has not been exercised in this refactor.
 

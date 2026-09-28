@@ -16,8 +16,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from asharerank.settings import UNIVERSE_DIR
-from asharerank.predict.fundamentals import download_fundamentals, list_available_codes as list_fund_codes
-from asharerank.predict.universe import list_available_codes
+from asharerank.forecasting.fundamentals import download_fundamentals, list_available_codes as list_fund_codes
+from asharerank.forecasting.universe import list_available_codes
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(message)s")

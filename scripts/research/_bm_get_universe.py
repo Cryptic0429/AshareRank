@@ -1,7 +1,7 @@
 """内部脚本：只做 StockMixer 数据准备（不训练），导出对齐用的股票池 + 时间边界。
 
 由 `scripts/research/train_lgbm_aligned.py` 通过 `subprocess` 调用，跑在独立进程里
-（本脚本 import torch），原因见 `asharerank/predict/benchmark_stockmixer_step.py`
+（本脚本 import torch），原因见 `asharerank/forecasting/benchmark_stockmixer_step.py`
 顶部注释（PyTorch + LightGBM 同进程在 macOS 上会 OpenMP 冲突 segfault）。
 """
 from __future__ import annotations
@@ -18,8 +18,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from asharerank.predict.benchmark_stockmixer_step import get_universe_and_bounds
-from asharerank.predict.experimental.stockmixer.config import StockMixerConfig
+from asharerank.forecasting.benchmark_stockmixer_step import get_universe_and_bounds
+from asharerank.forecasting.experimental.stockmixer.config import StockMixerConfig
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 

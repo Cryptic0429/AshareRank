@@ -13,8 +13,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from asharerank.predict.experimental.lstm.config import LSTMConfig
-from asharerank.predict.experimental.lstm.train import run_lstm_baseline
+from asharerank.forecasting.experimental.lstm.config import LSTMConfig
+from asharerank.forecasting.experimental.lstm.train import run_lstm_baseline
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(message)s")

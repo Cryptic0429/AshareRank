@@ -20,12 +20,17 @@ scripts/research/ or `asharerank` CLI
 ## Package responsibilities
 
 - `settings.py`: project-relative paths, provider credentials, and shared research defaults.
-- `data_service.py`, `predict/universe.py`, `predict/fundamentals.py`: provider access, local cache, stock-universe data, and optional fundamentals.
-- `data/`, `features/`, `predict/dataset.py`: input validation, feature construction, forward labels, and prepared panels.
-- `data/splits.py` and `predict/dataset.py`: chronological and rolling train/validation/test assignment. The shared chronological path, primary benchmark paths, StockMixer/LSTM paths, and secondary rolling LightGBM/XGBoost/LSTM workflows purge five trading dates at each applicable label boundary and record the excluded dates.
-- `models/`, `adapters/`, `training/`, and `predict/experimental/`: baseline and research models, training, inference, and benchmark orchestration.
-- `evaluation/`, `predict/evaluate.py`, `risk/`: cross-sectional ranking metrics, cost-aware portfolio analysis, and risk decomposition.
+- `data_service.py`, `forecasting/universe.py`, `forecasting/fundamentals.py`: provider access, local cache, stock-universe data, and optional fundamentals.
+- `data/`, `forecasting/dataset.py`, `forecasting/features.py`: input validation, feature construction, forward labels, and prepared panels.
+- `data/splits.py` and `forecasting/dataset.py`: chronological and rolling train/validation/test assignment. The shared chronological path, primary benchmark paths, StockMixer/LSTM paths, and secondary rolling LightGBM/XGBoost/LSTM workflows purge five trading dates at each applicable label boundary and record the excluded dates.
+- `forecasting/`: data-backed forecast experiments, model training workflows, benchmark orchestration, and research-only model artifact metadata. Import these modules as `asharerank.forecasting.*`.
+- `prediction/`: stable prediction-frame contracts, ranking, and universe/portfolio selection helpers. This package does not own model training.
+- `prediction/inference/`: model-loading and scoring engines. `engine.py` scores saved model-comparison artifacts; `service.py` manages that local workflow. `alpha.py` contains the separate older batch scoring and SQLite persistence path.
+- `models/`, `adapters/`, `training/`: model definitions, training-data adapters, and the shared model-comparison workflow.
+- `evaluation/`, `risk/`: cross-sectional ranking metrics, cost-aware portfolio analysis, and risk decomposition.
 - `db.py`: small local SQLite store for risk metric history; experiment artifacts belong in versioned run directories.
+
+The former top-level `predict/` package has been renamed to `forecasting/`. The former top-level `inference/` package now lives under `prediction/inference/`; model-specific runtime helpers and the tree-worker entry point live there as well. This leaves one top-level prediction namespace and makes the distinction between training/benchmark workflows and scoring outputs explicit.
 
 ## Data and artifact flow
 

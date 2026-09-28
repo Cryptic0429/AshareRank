@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from asharerank.settings import PROCESSED_DATA_DIR
 from asharerank.config import ExperimentConfig, PANEL_STOCK_LIMIT
 from asharerank.data import build_common_dataset
-from asharerank.predict.universe import load_panel
+from asharerank.forecasting.universe import load_panel
 
 
 def main() -> None:

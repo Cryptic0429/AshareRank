@@ -40,7 +40,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from asharerank.settings import RUNS_DIR
-from asharerank.predict.benchmark import combine_and_evaluate
+from asharerank.forecasting.benchmark import combine_and_evaluate
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)

@@ -7,9 +7,9 @@ from unittest.mock import patch
 import numpy as np
 
 from asharerank.adapters.base import AdaptedData
-from asharerank.inference.engine import predict_saved_models, prepare_latest_feature_frame
+from asharerank.prediction.inference.engine import predict_saved_models, prepare_latest_feature_frame
 from asharerank.schemas import LivePredictRequest
-from tests.panel.helpers import synthetic_panel
+from tests.research.helpers import synthetic_panel
 
 
 class _InferenceOnlyAdapter:
@@ -48,10 +48,10 @@ class LiveInferenceTests(unittest.TestCase):
     def test_saved_model_path_only_calls_predict(self):
         artifact = Path("unused-test-artifact")
         with patch(
-            "asharerank.inference.engine.latest_saved_artifact",
+            "asharerank.prediction.inference.engine.latest_saved_artifact",
             return_value=artifact,
         ), patch(
-            "asharerank.inference.engine.joblib.load",
+            "asharerank.prediction.inference.engine.joblib.load",
             side_effect=[_InferenceOnlyAdapter(), _InferenceOnlyModel()],
         ):
             outputs, errors, coverage = predict_saved_models(

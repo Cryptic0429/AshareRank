@@ -16,7 +16,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from asharerank.predict.universe import INDEX_POOLS, download_universe, fetch_index_constituents
+from asharerank.forecasting.universe import INDEX_POOLS, download_universe, fetch_index_constituents
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(message)s")
