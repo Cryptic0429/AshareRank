@@ -2,6 +2,8 @@
 
 AshareRank Research is a reproducible research codebase for studying cross-sectional stock ranking in the China A-share market. Its current working question is whether sequence and cross-sectional models improve out-of-sample ranking of five-day excess returns over simpler baselines, and whether any improvement survives portfolio costs.
 
+This project is a product of the **NUS SOC Summer Workshop 2026**.
+
 The repository is organized around data lineage, controlled experiments, out-of-sample evaluation, and reproducible reports. It is not a trading product and does not place orders.
 
 ## Project website
@@ -64,7 +66,6 @@ Forward labels overlap in time. Any split used for inference must purge at least
 
 ## Project guidance
 
-- [`AGENT.md`](AGENT.md): concise project tracker, current scope, and next milestones.
 - [`AGENTS.md`](AGENTS.md): repository rules for future coding agents and collaborators.
 - [`RESEARCH_PLAN.md`](RESEARCH_PLAN.md): research question, protocol, known risks, and status tracker.
 - [`docs/architecture.md`](docs/architecture.md): code and data flow.
