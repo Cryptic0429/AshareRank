@@ -98,11 +98,15 @@ def save_report(name: str, payload: dict, *, config: dict | None = None) -> Path
     saved_at = now.strftime("%Y-%m-%d %H:%M:%S.%f")
     run_id = f"{now.strftime('%Y%m%d_%H%M%S_%f')}_{name}"
     git_commit = _git_commit()
+    from asharerank.research_record import input_manifest, environment_record
+    environment = environment_record()
+    config = config if config is not None else payload.get('config', {'command': list(sys.argv)})
     payload = {
         **payload,
         "run_id": run_id,
         "saved_at": saved_at,
         "git_commit": git_commit,
+        "data_manifest": payload.get('data_manifest') or input_manifest(),
     }
     if config is not None:
         payload = {**payload, "config": config}
@@ -126,6 +130,7 @@ def save_report(name: str, payload: dict, *, config: dict | None = None) -> Path
         except metadata.PackageNotFoundError:
             continue
     manifest = {
+        **environment,
         "run_id": run_id,
         "name": name,
         "created_at": saved_at,

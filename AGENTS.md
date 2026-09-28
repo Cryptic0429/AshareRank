@@ -51,8 +51,10 @@ This is research software, not a product. Do not add a game, dashboard, API serv
 - [x] Audit all training and benchmark split implementations for horizon-aware purging; the shared rolling-window workflows now purge and record boundary dates.
 - [x] Separate forecast research workflows from prediction contracts and model-inference runtime namespaces.
 - [x] Add versioned run reports, environment manifests, and full CLI argument snapshots to the primary multi-model benchmark.
-- [ ] Extend consistent manifests and data provenance to every experiment command.
+- [x] Extend consistent lifecycle manifests to training/benchmark entry points, and input provenance to shared loaders and report writers. Unknown legacy provenance remains explicitly unknown; the new historical-cohort baseline workflow has complete per-ticker snapshot records.
 - [x] Document the Windows setup and optional dependency installation paths.
 - [x] Reconcile the active project description and migration tracker with the research-only repository.
 
 Data lineage remains an open item: existing local OHLCV Parquet files do not consistently retain which provider supplied each ticker or whether a cached file was previously refreshed from a fallback source. Runs using these files must identify that limitation instead of implying complete source provenance.
+
+The first empirical simple-model run is `20260928T065633Z_simple_baselines`; see its curated report and `docs/baseline_protocol.md`. It uses real BaoStock historical-cohort data and no synthetic fallback. StockMixer and LSTM are deferred while simple models are prioritized. Preserve the distinction between the completed empirical workflow and unresolved data-quality limitations (historical revisions, delisting/merger settlement, and assumed fundamental publication dates).

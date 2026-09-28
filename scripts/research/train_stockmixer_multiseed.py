@@ -106,6 +106,8 @@ def main():
     p.add_argument("--n-seeds", type=int, default=5, help="未指定 --seeds 时，生成的随机种子个数")
     p.add_argument("--seed-start", type=int, default=42, help="未指定 --seeds 时，随机种子的起始值（依次+1）")
     args = p.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
 
     if args.seeds:
         seeds = tuple(int(s.strip()) for s in args.seeds.split(",") if s.strip())
@@ -154,4 +156,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

@@ -23,8 +23,11 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--max-stocks", type=int, default=None)
     args = p.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
     run_xgboost_baseline(max_stocks=args.max_stocks)
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

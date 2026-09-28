@@ -31,6 +31,8 @@ def main():
     p.add_argument("--out-frame", required=True, help="预测长表输出路径（parquet）")
     p.add_argument("--out-meta", required=True, help="切分与 purge 元信息输出路径（json）")
     args = p.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
 
     codes = json.loads(Path(args.codes_file).read_text())
     frame = run_xgboost_step(codes, args.test_start, args.test_end,
@@ -43,4 +45,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

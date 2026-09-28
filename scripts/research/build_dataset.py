@@ -23,6 +23,8 @@ def main() -> None:
     parser.add_argument("--target", choices=["return", "excess_return"], default="excess_return")
     parser.add_argument("--output", type=Path, default=PROCESSED_DATA_DIR / "common_dataset.parquet")
     args = parser.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
 
     panel = load_panel()
     stock_limit = min(args.max_stocks, PANEL_STOCK_LIMIT)
@@ -37,7 +39,10 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     dataset.frame.to_parquet(args.output, index=False)
     metadata_path = args.output.with_suffix(".json")
+    from asharerank.research_record import environment_record, input_manifest
     metadata_path.write_text(json.dumps({
+        **environment_record(),
+        "data_manifest": input_manifest(),
         "config": asdict(config),
         "split": dataset.split.as_dict(),
         "rows": len(dataset.frame),
@@ -51,4 +56,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

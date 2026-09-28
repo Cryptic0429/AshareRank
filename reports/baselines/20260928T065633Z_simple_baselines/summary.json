@@ -1,0 +1,4021 @@
+{
+  "run_id": "20260928T065633Z_simple_baselines",
+  "status": "exploratory historical-cohort evidence; not a trading recommendation",
+  "config": {
+    "name": "historical_csi300_simple_baselines",
+    "universe_date": "2018-01-02",
+    "universe_size": 60,
+    "universe_seed": "asharerank-historical-2018-v1",
+    "download_start": "2017-01-01",
+    "download_end": "2025-12-31",
+    "train_start": "2018-01-02",
+    "test_years": [
+      2023,
+      2024,
+      2025
+    ],
+    "horizon": 5,
+    "top_k": 10,
+    "minimum_stocks": 20,
+    "minimum_amount": 10000000,
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "cost_bps": [
+      0,
+      10,
+      25,
+      50
+    ],
+    "bootstrap_repetitions": 1000,
+    "bootstrap_block_dates": 20,
+    "models": {
+      "Ridge": [
+        {
+          "alpha": 10.0
+        },
+        {
+          "alpha": 1000.0
+        }
+      ],
+      "ElasticNet": [
+        {
+          "alpha": 0.001,
+          "l1_ratio": 0.2
+        },
+        {
+          "alpha": 0.01,
+          "l1_ratio": 0.5
+        }
+      ],
+      "RandomForest": [
+        {
+          "n_estimators": 120,
+          "max_depth": 5,
+          "min_samples_leaf": 100
+        },
+        {
+          "n_estimators": 120,
+          "max_depth": 8,
+          "min_samples_leaf": 100
+        }
+      ],
+      "LightGBM": [
+        {
+          "n_estimators": 200,
+          "num_leaves": 15,
+          "learning_rate": 0.03,
+          "min_child_samples": 100
+        },
+        {
+          "n_estimators": 200,
+          "num_leaves": 31,
+          "learning_rate": 0.03,
+          "min_child_samples": 100
+        }
+      ],
+      "XGBoost": [
+        {
+          "n_estimators": 200,
+          "max_depth": 3,
+          "learning_rate": 0.03,
+          "min_child_weight": 100
+        },
+        {
+          "n_estimators": 200,
+          "max_depth": 5,
+          "learning_rate": 0.03,
+          "min_child_weight": 100
+        }
+      ]
+    }
+  },
+  "coverage": {
+    "download_rows": 130505,
+    "fixed_universe_stocks": 60,
+    "eligible_prediction_rows": 42506,
+    "evaluated_rows": 41456,
+    "prediction_dates": 727,
+    "evaluated_dates": 709,
+    "missing_forward_outcome_rows": 342,
+    "excluded_year_boundary_rows": 1050,
+    "min_stocks_per_evaluation_date": 55,
+    "max_stocks_per_evaluation_date": 60,
+    "per_stock": {
+      "sh.600019": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 19
+      },
+      "sh.600028": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.600089": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 6
+      },
+      "sh.600115": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.600177": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.600221": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 131
+      },
+      "sh.600271": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 5
+      },
+      "sh.600276": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.600309": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 125
+      },
+      "sh.600489": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 11
+      },
+      "sh.600522": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.600549": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.600704": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.600705": {
+        "rows": 2036,
+        "first": "2017-01-03",
+        "last": "2025-05-26",
+        "suspended_rows": 35
+      },
+      "sh.600837": {
+        "rows": 1981,
+        "first": "2017-01-03",
+        "last": "2025-03-04",
+        "suspended_rows": 36
+      },
+      "sh.600909": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 6
+      },
+      "sh.600926": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.601012": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 6
+      },
+      "sh.601166": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.601318": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.601333": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.601633": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 7
+      },
+      "sh.601688": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.601766": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.601857": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.601872": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 100
+      },
+      "sh.601919": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 50
+      },
+      "sh.601958": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sh.603858": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.000002": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 5
+      },
+      "sz.000060": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.000063": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 49
+      },
+      "sz.000338": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.000402": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.000413": {
+        "rows": 1886,
+        "first": "2017-01-03",
+        "last": "2024-10-11",
+        "suspended_rows": 140
+      },
+      "sz.000415": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 119
+      },
+      "sz.000559": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 15
+      },
+      "sz.000686": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.000750": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 19
+      },
+      "sz.000768": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.000776": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.000858": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.000959": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 22
+      },
+      "sz.001979": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 16
+      },
+      "sz.002027": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.002044": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 5
+      },
+      "sz.002230": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.002292": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.002310": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 73
+      },
+      "sz.002456": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 18
+      },
+      "sz.002460": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 1
+      },
+      "sz.002466": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 25
+      },
+      "sz.002475": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 1
+      },
+      "sz.002508": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.002594": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.002601": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 40
+      },
+      "sz.002608": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 10
+      },
+      "sz.002624": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 10
+      },
+      "sz.300059": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 0
+      },
+      "sz.300070": {
+        "rows": 2186,
+        "first": "2017-01-03",
+        "last": "2025-12-31",
+        "suspended_rows": 9
+      }
+    }
+  },
+  "features": [
+    "return_1",
+    "return_5",
+    "return_10",
+    "return_20",
+    "return_60",
+    "volatility_10",
+    "ma_distance_10",
+    "volatility_20",
+    "ma_distance_20",
+    "volatility_60",
+    "ma_distance_60",
+    "intraday",
+    "range",
+    "volume_ratio",
+    "turnover",
+    "turnover_ratio"
+  ],
+  "folds": [
+    {
+      "year": 2023,
+      "horizon": 5,
+      "execution_lag": 1,
+      "purge_rule": "label_end strictly before next split boundary",
+      "train_rows": 57043,
+      "valid_rows": 13959,
+      "test_prediction_rows": 14520,
+      "train_dates": [
+        "2018-01-02",
+        "2021-12-23"
+      ],
+      "train_excluded_dates": [
+        "2021-12-24",
+        "2021-12-27",
+        "2021-12-28",
+        "2021-12-29",
+        "2021-12-30",
+        "2021-12-31"
+      ],
+      "valid_dates": [
+        "2022-01-04",
+        "2022-12-22"
+      ],
+      "valid_excluded_dates": [
+        "2022-12-23",
+        "2022-12-26",
+        "2022-12-27",
+        "2022-12-28",
+        "2022-12-29",
+        "2022-12-30"
+      ],
+      "selection": {
+        "Ridge": {
+          "validation_rank_ic": [
+            0.017069520776230303,
+            0.018586296951212906
+          ],
+          "selected": {
+            "alpha": 1000.0
+          },
+          "seeds": [
+            17
+          ],
+          "seconds": 1.322
+        },
+        "ElasticNet": {
+          "validation_rank_ic": [
+            0.015006281913030259,
+            0.01993815249892785
+          ],
+          "selected": {
+            "alpha": 0.01,
+            "l1_ratio": 0.5
+          },
+          "seeds": [
+            17
+          ],
+          "seconds": 2.061
+        },
+        "RandomForest": {
+          "validation_rank_ic": [
+            0.02388713138821086,
+            0.026885038584446585
+          ],
+          "selected": {
+            "n_estimators": 120,
+            "max_depth": 8,
+            "min_samples_leaf": 100
+          },
+          "seeds": [
+            17,
+            29,
+            43
+          ],
+          "seconds": 19.754
+        },
+        "LightGBM": {
+          "validation_rank_ic": [
+            0.02437464070066446,
+            0.01705523886787103
+          ],
+          "selected": {
+            "n_estimators": 200,
+            "num_leaves": 15,
+            "learning_rate": 0.03,
+            "min_child_samples": 100
+          },
+          "seeds": [
+            17,
+            29,
+            43
+          ],
+          "seconds": 4.821
+        },
+        "XGBoost": {
+          "validation_rank_ic": [
+            0.02954633175004623,
+            0.022024752883964948
+          ],
+          "selected": {
+            "n_estimators": 200,
+            "max_depth": 3,
+            "learning_rate": 0.03,
+            "min_child_weight": 100
+          },
+          "seeds": [
+            17,
+            29,
+            43
+          ],
+          "seconds": 4.176
+        }
+      }
+    },
+    {
+      "year": 2024,
+      "horizon": 5,
+      "execution_lag": 1,
+      "purge_rule": "label_end strictly before next split boundary",
+      "train_rows": 71356,
+      "valid_rows": 14160,
+      "test_prediction_rows": 14163,
+      "train_dates": [
+        "2018-01-02",
+        "2022-12-22"
+      ],
+      "train_excluded_dates": [
+        "2022-12-23",
+        "2022-12-26",
+        "2022-12-27",
+        "2022-12-28",
+        "2022-12-29",
+        "2022-12-30"
+      ],
+      "valid_dates": [
+        "2023-01-03",
+        "2023-12-21"
+      ],
+      "valid_excluded_dates": [
+        "2023-12-22",
+        "2023-12-25",
+        "2023-12-26",
+        "2023-12-27",
+        "2023-12-28",
+        "2023-12-29"
+      ],
+      "selection": {
+        "Ridge": {
+          "validation_rank_ic": [
+            0.01467717730187054,
+            0.018088457994671715
+          ],
+          "selected": {
+            "alpha": 1000.0
+          },
+          "seeds": [
+            17
+          ],
+          "seconds": 1.294
+        },
+        "ElasticNet": {
+          "validation_rank_ic": [
+            0.01795623179916357,
+            0.07732320180427109
+          ],
+          "selected": {
+            "alpha": 0.01,
+            "l1_ratio": 0.5
+          },
+          "seeds": [
+            17
+          ],
+          "seconds": 2.06
+        },
+        "RandomForest": {
+          "validation_rank_ic": [
+            0.016985047842223464,
+            0.009506523022910215
+          ],
+          "selected": {
+            "n_estimators": 120,
+            "max_depth": 5,
+            "min_samples_leaf": 100
+          },
+          "seeds": [
+            17,
+            29,
+            43
+          ],
+          "seconds": 19.894
+        },
+        "LightGBM": {
+          "validation_rank_ic": [
+            0.006814227123447944,
+            0.00032183449409102245
+          ],
+          "selected": {
+            "n_estimators": 200,
+            "num_leaves": 15,
+            "learning_rate": 0.03,
+            "min_child_samples": 100
+          },
+          "seeds": [
+            17,
+            29,
+            43
+          ],
+          "seconds": 4.531
+        },
+        "XGBoost": {
+          "validation_rank_ic": [
+            0.0017551835096005384,
+            -0.0018406456792403206
+          ],
+          "selected": {
+            "n_estimators": 200,
+            "max_depth": 3,
+            "learning_rate": 0.03,
+            "min_child_weight": 100
+          },
+          "seeds": [
+            17,
+            29,
+            43
+          ],
+          "seconds": 4.775
+        }
+      }
+    },
+    {
+      "year": 2025,
+      "horizon": 5,
+      "execution_lag": 1,
+      "purge_rule": "label_end strictly before next split boundary",
+      "train_rows": 85876,
+      "valid_rows": 13815,
+      "test_prediction_rows": 13823,
+      "train_dates": [
+        "2018-01-02",
+        "2023-12-21"
+      ],
+      "train_excluded_dates": [
+        "2023-12-22",
+        "2023-12-25",
+        "2023-12-26",
+        "2023-12-27",
+        "2023-12-28",
+        "2023-12-29"
+      ],
+      "valid_dates": [
+        "2024-01-02",
+        "2024-12-23"
+      ],
+      "valid_excluded_dates": [
+        "2024-12-24",
+        "2024-12-25",
+        "2024-12-26",
+        "2024-12-27",
+        "2024-12-30",
+        "2024-12-31"
+      ],
+      "selection": {
+        "Ridge": {
+          "validation_rank_ic": [
+            0.06795356285350614,
+            0.0669326332857558
+          ],
+          "selected": {
+            "alpha": 10.0
+          },
+          "seeds": [
+            17
+          ],
+          "seconds": 1.64
+        },
+        "ElasticNet": {
+          "validation_rank_ic": [
+            0.0680113141633534,
+            0.08223599666580295
+          ],
+          "selected": {
+            "alpha": 0.01,
+            "l1_ratio": 0.5
+          },
+          "seeds": [
+            17
+          ],
+          "seconds": 1.673
+        },
+        "RandomForest": {
+          "validation_rank_ic": [
+            0.06540406523953932,
+            0.06110585224137463
+          ],
+          "selected": {
+            "n_estimators": 120,
+            "max_depth": 5,
+            "min_samples_leaf": 100
+          },
+          "seeds": [
+            17,
+            29,
+            43
+          ],
+          "seconds": 25.65
+        },
+        "LightGBM": {
+          "validation_rank_ic": [
+            0.04577627275934682,
+            0.03663313842485765
+          ],
+          "selected": {
+            "n_estimators": 200,
+            "num_leaves": 15,
+            "learning_rate": 0.03,
+            "min_child_samples": 100
+          },
+          "seeds": [
+            17,
+            29,
+            43
+          ],
+          "seconds": 4.894
+        },
+        "XGBoost": {
+          "validation_rank_ic": [
+            0.05509105161240207,
+            0.04823847476304374
+          ],
+          "selected": {
+            "n_estimators": 200,
+            "max_depth": 3,
+            "learning_rate": 0.03,
+            "min_child_weight": 100
+          },
+          "seeds": [
+            17,
+            29,
+            43
+          ],
+          "seconds": 5.219
+        }
+      }
+    }
+  ],
+  "predictive": {
+    "Momentum": {
+      "rank_ic": -0.012889381469506815,
+      "rank_ic_ci95": [
+        -0.04225498010004834,
+        0.016639874111309565
+      ],
+      "ic": -0.002611217255590371,
+      "rank_icir": -0.057351491278330634,
+      "precision_at_k": 0.44781382228490835,
+      "positive_excess_base_rate": 0.4572563555818047,
+      "n_days": 709
+    },
+    "Ridge": {
+      "rank_ic": 0.020347901413388547,
+      "rank_ic_ci95": [
+        -0.006541626445471151,
+        0.047131724661100494
+      ],
+      "ic": 0.004480169054604784,
+      "rank_icir": 0.09629900980072902,
+      "precision_at_k": 0.4665726375176304,
+      "positive_excess_base_rate": 0.4572563555818047,
+      "n_days": 709
+    },
+    "ElasticNet": {
+      "rank_ic": 0.057123846950703265,
+      "rank_ic_ci95": [
+        0.018618334084239716,
+        0.09248154332541163
+      ],
+      "ic": 0.02811132487159811,
+      "rank_icir": 0.22735798418955536,
+      "precision_at_k": 0.4801128349788434,
+      "positive_excess_base_rate": 0.4572563555818047,
+      "n_days": 709
+    },
+    "RandomForest": {
+      "rank_ic": 0.0210454648446732,
+      "rank_ic_ci95": [
+        -0.0004897505624960693,
+        0.0447803629990049
+      ],
+      "ic": 0.009831406387152472,
+      "rank_icir": 0.11423268946689116,
+      "precision_at_k": 0.4472496473906912,
+      "positive_excess_base_rate": 0.4572563555818047,
+      "n_days": 709
+    },
+    "LightGBM": {
+      "rank_ic": 0.027429514108726745,
+      "rank_ic_ci95": [
+        0.009414213310739493,
+        0.046293200482783424
+      ],
+      "ic": 0.01879657632671329,
+      "rank_icir": 0.16905243476697712,
+      "precision_at_k": 0.4513399153737659,
+      "positive_excess_base_rate": 0.4572563555818047,
+      "n_days": 709
+    },
+    "XGBoost": {
+      "rank_ic": 0.027054040856336708,
+      "rank_ic_ci95": [
+        0.006205984393298218,
+        0.04799796256867254
+      ],
+      "ic": 0.014395738585529972,
+      "rank_icir": 0.15286353387529097,
+      "precision_at_k": 0.46149506346967567,
+      "positive_excess_base_rate": 0.4572563555818047,
+      "n_days": 709
+    }
+  },
+  "paired_rank_ic_vs_ridge": {
+    "Momentum": {
+      "mean": -0.03323728288289536,
+      "ci95": [
+        -0.07680839447328154,
+        0.008438601521961572
+      ]
+    },
+    "ElasticNet": {
+      "mean": 0.03677594553731472,
+      "ci95": [
+        0.012745772390381223,
+        0.05915145326313201
+      ]
+    },
+    "RandomForest": {
+      "mean": 0.0006975634312846539,
+      "ci95": [
+        -0.014220458390433162,
+        0.01577672592133848
+      ]
+    },
+    "LightGBM": {
+      "mean": 0.007081612695338203,
+      "ci95": [
+        -0.012145425531282334,
+        0.02678076883739408
+      ]
+    },
+    "XGBoost": {
+      "mean": 0.0067061394429481615,
+      "ci95": [
+        -0.008785322394965692,
+        0.02373100228723249
+      ]
+    }
+  },
+  "data_manifest": {
+    "schema_version": 1,
+    "identity": {
+      "universe_date": "2018-01-02",
+      "universe_size": 60,
+      "universe_seed": "asharerank-historical-2018-v1",
+      "download_start": "2017-01-01",
+      "download_end": "2025-12-31"
+    },
+    "provider": "baostock",
+    "data_kind": "real",
+    "synthetic_rows": 0,
+    "fallback_used": false,
+    "universe_rule": "Fixed historical CSI300 cohort; SHA256 ordering, no replacement based on outcomes",
+    "universe_requested_asof": "2018-01-02",
+    "universe_source_dates": [
+      "2018-01-01"
+    ],
+    "selected_codes": [
+      "sh.600837",
+      "sz.002466",
+      "sh.601958",
+      "sh.601919",
+      "sz.002230",
+      "sz.300070",
+      "sh.601633",
+      "sz.002508",
+      "sh.600926",
+      "sz.000858",
+      "sh.600276",
+      "sz.000415",
+      "sz.000768",
+      "sz.000686",
+      "sz.001979",
+      "sz.002292",
+      "sh.601318",
+      "sz.000750",
+      "sh.600089",
+      "sz.002027",
+      "sz.000776",
+      "sh.600028",
+      "sh.601766",
+      "sz.000060",
+      "sz.000559",
+      "sh.603858",
+      "sh.600522",
+      "sh.601857",
+      "sh.601166",
+      "sh.601012",
+      "sh.600177",
+      "sh.601872",
+      "sh.600549",
+      "sz.002601",
+      "sz.000338",
+      "sz.000402",
+      "sh.600019",
+      "sz.000959",
+      "sz.002044",
+      "sz.002460",
+      "sz.000002",
+      "sz.300059",
+      "sh.600909",
+      "sz.002594",
+      "sh.601333",
+      "sh.600489",
+      "sh.600115",
+      "sh.601688",
+      "sh.600705",
+      "sh.600704",
+      "sz.000063",
+      "sz.002608",
+      "sh.600309",
+      "sz.002456",
+      "sz.002624",
+      "sz.002310",
+      "sh.600271",
+      "sz.002475",
+      "sz.000413",
+      "sh.600221"
+    ],
+    "retrieved_at_utc": "2026-09-28T06:55:07.182095+00:00",
+    "files": [
+      {
+        "path": "sh.600837.parquet",
+        "code": "sh.600837",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:48:00.431266+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 1981,
+        "start": "2017-01-03",
+        "end": "2025-03-04",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 36,
+          "amount": 36,
+          "adjustflag": 0,
+          "turn": 36,
+          "tradestatus": 0,
+          "pctChg": 36,
+          "isST": 0
+        },
+        "sha256": "30e96eff12832fc77906310c1f52e8da1cd7d1eaae4ea669854ed94b7da85b9d"
+      },
+      {
+        "path": "sz.002466.parquet",
+        "code": "sz.002466",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:48:06.181721+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 25,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "a920e36189c06c4e300a8341f947d4de0ad92805abb0f744f0141926ed9f4fe0"
+      },
+      {
+        "path": "sh.601958.parquet",
+        "code": "sh.601958",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:48:12.555384+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "81bbfac283552da0a188b44105716f619c65be4d6ebc2ccea471d295a6086822"
+      },
+      {
+        "path": "sh.601919.parquet",
+        "code": "sh.601919",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:48:20.982986+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 50,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "48cc391ae6b42a412faa45aa49f1fe700db971df7fb3117fa1003a92b1cd7a7f"
+      },
+      {
+        "path": "sz.002230.parquet",
+        "code": "sz.002230",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:48:29.248126+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "9acdc70ce66ea1d0697aeb7babe6c67a64a635b0d7c115db01e2986c3aab0397"
+      },
+      {
+        "path": "sz.300070.parquet",
+        "code": "sz.300070",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:48:33.715977+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 5,
+          "amount": 5,
+          "adjustflag": 0,
+          "turn": 9,
+          "tradestatus": 0,
+          "pctChg": 5,
+          "isST": 0
+        },
+        "sha256": "7110036298335b21cfeaf3ef6196a6f1dcb7f0e3d333da83de48ec4d6cdc0e54"
+      },
+      {
+        "path": "sh.601633.parquet",
+        "code": "sh.601633",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:48:38.075385+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 7,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "22ba197cfd70c82b5785090a1620584ece03501af5fad53d6fdf74817ad30ebe"
+      },
+      {
+        "path": "sz.002508.parquet",
+        "code": "sz.002508",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:48:43.096053+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "64706ba4c6ebe1af2a933d45bda4023f66830063c88e489203db5da9a9a67829"
+      },
+      {
+        "path": "sh.600926.parquet",
+        "code": "sh.600926",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:48:52.550301+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "b90f96b8f3a8fcf8bd4f6e786334c068d66bccb9cf26140e6a02111c35ff11d9"
+      },
+      {
+        "path": "sz.000858.parquet",
+        "code": "sz.000858",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:48:58.276512+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "420a1a54cc99e7e5bbf9b567534ea3c1b74056a82b33f5aaa0c60369c105bd1c"
+      },
+      {
+        "path": "sh.600276.parquet",
+        "code": "sh.600276",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:49:09.370097+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "cbbeb4fe1ef15f9bf69ae2664b6dba57eb724a990589504d237eae7fefd0f6f4"
+      },
+      {
+        "path": "sz.000415.parquet",
+        "code": "sz.000415",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:49:17.311897+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 119,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "0ff3b1f0d76bd7a0e73c3058fc5aea0c85aa7891ead911212d902330f827fd3c"
+      },
+      {
+        "path": "sz.000768.parquet",
+        "code": "sz.000768",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:49:25.219645+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "09793fd23ac53fbabeeb9ab145c9dcb6a6d6cc1d3b0ef540f895abe9feaaeb7e"
+      },
+      {
+        "path": "sz.000686.parquet",
+        "code": "sz.000686",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:49:28.812325+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "9e5acdd12263748c493ed46bf92d93a11379c829795428a238c69784b6378a75"
+      },
+      {
+        "path": "sz.001979.parquet",
+        "code": "sz.001979",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:49:32.783420+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 10,
+          "amount": 10,
+          "adjustflag": 0,
+          "turn": 16,
+          "tradestatus": 0,
+          "pctChg": 10,
+          "isST": 0
+        },
+        "sha256": "b56d4e0dfcb237c8a411568c4a45b63b26ef121f89eaaf039561c1a23215f303"
+      },
+      {
+        "path": "sz.002292.parquet",
+        "code": "sz.002292",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:49:35.632749+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "0795b7e50ce026dce9142998c04a12b0bc6785234e85bf22c5863c8465c34dcb"
+      },
+      {
+        "path": "sh.601318.parquet",
+        "code": "sh.601318",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:49:41.590906+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "eaafbfdb535cdd290929fd06108a6bbeea35b2d037f7ecbecba717d43616609d"
+      },
+      {
+        "path": "sz.000750.parquet",
+        "code": "sz.000750",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:49:48.226985+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 19,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "a18c3dd5f03d42bfd5c8700e8a6b9b14b66ebcaeb2835d0fc3db0d6065021ef8"
+      },
+      {
+        "path": "sh.600089.parquet",
+        "code": "sh.600089",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:49:51.673110+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 6,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "9d9bd0dbbc5654ce53ee4d53e68f17df897e061a5d69e6b1ddbec1de8441375f"
+      },
+      {
+        "path": "sz.002027.parquet",
+        "code": "sz.002027",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:50:00.537501+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "7f08ee8a7e615471cbc975cce5a53ef57d21efb2148be1a4b3a8e3adc597df52"
+      },
+      {
+        "path": "sz.000776.parquet",
+        "code": "sz.000776",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:50:07.189696+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "97d00d2e6278f2209bf45ef33237d0f855986a86b47ca6cd6004aa9c9f377c2d"
+      },
+      {
+        "path": "sh.600028.parquet",
+        "code": "sh.600028",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:50:20.731410+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "1ec397bdc977a9a74e31a7aab489d1e7b6e8445aa39960ee2916906944d3c786"
+      },
+      {
+        "path": "sh.601766.parquet",
+        "code": "sh.601766",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:50:26.730960+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "a971db9814ff978dce41437c602bf72ced03c9dad45880e3a8067ed10f45a090"
+      },
+      {
+        "path": "sz.000060.parquet",
+        "code": "sz.000060",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:50:31.492124+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "694b703310300ec136f32e62b526084c9c0e16c55ef008bda2cb8fd1a149c507"
+      },
+      {
+        "path": "sz.000559.parquet",
+        "code": "sz.000559",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:50:37.905590+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 10,
+          "amount": 10,
+          "adjustflag": 0,
+          "turn": 15,
+          "tradestatus": 0,
+          "pctChg": 10,
+          "isST": 0
+        },
+        "sha256": "98de4852eaf53ffeeda7c5286ecbd0ea072141c25696a52a9004388c25c8a7a3"
+      },
+      {
+        "path": "sh.603858.parquet",
+        "code": "sh.603858",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:50:41.108396+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "6cee2cb6b5bee8d91cbf248005dbdf38a1b000a25fb3afd48d9764735109f808"
+      },
+      {
+        "path": "sh.600522.parquet",
+        "code": "sh.600522",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:50:48.707461+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "779217ce11cbe21c4d248800bccdfa8270eb5c0ec5a41fb15d17c3bd39487d2a"
+      },
+      {
+        "path": "sh.601857.parquet",
+        "code": "sh.601857",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:50:52.999383+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "460e39c2cf9fc985aedf3f0c3e17ce3fcf34e5a881bc393a060c64ffda47309d"
+      },
+      {
+        "path": "sh.601166.parquet",
+        "code": "sh.601166",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:51:07.934665+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "3651673b65ef31622f4f57b570b0990f4c444ce118a3927df101527c6d323f39"
+      },
+      {
+        "path": "sh.601012.parquet",
+        "code": "sh.601012",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:51:14.534826+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 6,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "860371468405c02747026f590e2d21738af8511f0b0b7d82bb6546d2049152d1"
+      },
+      {
+        "path": "sh.600177.parquet",
+        "code": "sh.600177",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:51:25.908252+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "e67270f90c1be495a81e7b42bee9148625d65f930522c9cd2195c6a7000bad23"
+      },
+      {
+        "path": "sh.601872.parquet",
+        "code": "sh.601872",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:51:40.410980+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 100,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "cf2e6c337575f25af895bbe1785aee557e38247a644c27ac2e9e778027b82260"
+      },
+      {
+        "path": "sh.600549.parquet",
+        "code": "sh.600549",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:51:46.247268+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "22bdfde62183bccdbfa017377aab6eddee5eb64fde691664d7ecdecafa253564"
+      },
+      {
+        "path": "sz.002601.parquet",
+        "code": "sz.002601",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:51:52.523029+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 40,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "283a77afdd2a66d144093f5f466ca4adf14fa97dc9e41410c814d29c3fe1ffa0"
+      },
+      {
+        "path": "sz.000338.parquet",
+        "code": "sz.000338",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:51:59.787018+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "485d6241f37781b7f7bbcc55752a5b9ecbe432c1f4bbd843c32d829531cb9229"
+      },
+      {
+        "path": "sz.000402.parquet",
+        "code": "sz.000402",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:52:04.567357+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "d76db419495a3b314388d3aff8a26dcc78483005f59f4be943fa85017816d865"
+      },
+      {
+        "path": "sh.600019.parquet",
+        "code": "sh.600019",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:52:08.209959+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 19,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "e3768eb84e727a8824b8740608553a1e60ad1c28718271f39e39f634662359f9"
+      },
+      {
+        "path": "sz.000959.parquet",
+        "code": "sz.000959",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:52:12.280561+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 1,
+          "amount": 1,
+          "adjustflag": 0,
+          "turn": 22,
+          "tradestatus": 0,
+          "pctChg": 1,
+          "isST": 0
+        },
+        "sha256": "85afd995e32b014153920a9979510eb2c1b9765c79ed23b8bbcc9b9bce8e0e2e"
+      },
+      {
+        "path": "sz.002044.parquet",
+        "code": "sz.002044",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:52:26.372326+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 5,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "d26d187cc8c2a949c4143af26db4a587a10332da7c8c3eefd070c1308a3c1b6b"
+      },
+      {
+        "path": "sz.002460.parquet",
+        "code": "sz.002460",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:52:35.720089+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 1,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "035158cac341ed1b6b2e981e3eea3efacc47e0f25ac1accb8be1fff171b5da1d"
+      },
+      {
+        "path": "sz.000002.parquet",
+        "code": "sz.000002",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:52:40.698057+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 5,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "3356961337ae617c1b559fa2c6d3f8fc618048af39efc50cbd6b09c55dd35dcf"
+      },
+      {
+        "path": "sz.300059.parquet",
+        "code": "sz.300059",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:52:50.242603+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "033d65eba07d3dd4b81ca3d61df80e49567f3dea32184840416e6bb384834c50"
+      },
+      {
+        "path": "sh.600909.parquet",
+        "code": "sh.600909",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:52:55.396257+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 6,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "b62a187e5ef19c4cbb9570547db268005350b636f4ba15e3c3906692a91e106a"
+      },
+      {
+        "path": "sz.002594.parquet",
+        "code": "sz.002594",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:53:03.727485+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "74f8e9f4e2224a79512b6dac2890a093e162a6e0f01dbdb6f6f55c0bcf344a66"
+      },
+      {
+        "path": "sh.601333.parquet",
+        "code": "sh.601333",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:53:07.861678+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "d8ffd70d3a6b427532dfa073040f8887cd29394fe765ce6fdfaeed9718e1221a"
+      },
+      {
+        "path": "sh.600489.parquet",
+        "code": "sh.600489",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:53:13.882745+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 11,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "7e7f08eb64a49c89592a69b55564bfeab2df45232056143fd58469fd20059c77"
+      },
+      {
+        "path": "sh.600115.parquet",
+        "code": "sh.600115",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:53:18.540023+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "46cd443ad9ae2c086e4f7f9038472a4da34c989582f2ac957bdd316a27be835a"
+      },
+      {
+        "path": "sh.601688.parquet",
+        "code": "sh.601688",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:53:28.710326+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "b10b7f88309c4e89e5a777a8a1eb7b022a7282be5c9e80a35c522b14f6900c9e"
+      },
+      {
+        "path": "sh.600705.parquet",
+        "code": "sh.600705",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:53:32.789545+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2036,
+        "start": "2017-01-03",
+        "end": "2025-05-26",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 35,
+          "amount": 35,
+          "adjustflag": 0,
+          "turn": 35,
+          "tradestatus": 0,
+          "pctChg": 35,
+          "isST": 0
+        },
+        "sha256": "1e10d51a27853acd5b42641db4c0fe47de7377c9374920a4ba24c17d5b48f732"
+      },
+      {
+        "path": "sh.600704.parquet",
+        "code": "sh.600704",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:53:39.394109+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 0,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "e144f72da35320b5523825998c37d4675bb96b5c95413d1bafc1d0779bc4f592"
+      },
+      {
+        "path": "sz.000063.parquet",
+        "code": "sz.000063",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:53:48.379542+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 49,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "db1db52ac85e0aaa98b979968c9987e7ec904b7af506e7e0be9286cf5985e3db"
+      },
+      {
+        "path": "sz.002608.parquet",
+        "code": "sz.002608",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:53:57.008777+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 10,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "911068d073dffd79fa2000ec2749cf8f2846ca646b1f79ab7faf509667d8df8b"
+      },
+      {
+        "path": "sh.600309.parquet",
+        "code": "sh.600309",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:54:03.857615+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 125,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "ec0759c56ff1ca1f819d301c2b694b8414951a98d1e8ad0fbc8a27d842433158"
+      },
+      {
+        "path": "sz.002456.parquet",
+        "code": "sz.002456",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:54:12.195660+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 10,
+          "amount": 10,
+          "adjustflag": 0,
+          "turn": 18,
+          "tradestatus": 0,
+          "pctChg": 10,
+          "isST": 0
+        },
+        "sha256": "c0552b1bce098595d08b738bcd8b48ffce8a49319179c12946ad51eedbfe13f9"
+      },
+      {
+        "path": "sz.002624.parquet",
+        "code": "sz.002624",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:54:22.649731+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 10,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "fad186e5c6ce99bceaaf5f67c158a9b9b7b1d110056ebd3541d384833a6b4b7d"
+      },
+      {
+        "path": "sz.002310.parquet",
+        "code": "sz.002310",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:54:29.614075+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 3,
+          "amount": 3,
+          "adjustflag": 0,
+          "turn": 73,
+          "tradestatus": 0,
+          "pctChg": 3,
+          "isST": 0
+        },
+        "sha256": "7660ca9c28e12dafea047bd654ab99e6b480b8a1d03510758c791b3e1b364668"
+      },
+      {
+        "path": "sh.600271.parquet",
+        "code": "sh.600271",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:54:49.354458+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 5,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "c76139b55da8ae0bb30d931eae30e45c586f0cf0d3997fdfb8e824821f661428"
+      },
+      {
+        "path": "sz.002475.parquet",
+        "code": "sz.002475",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:54:58.026205+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 0,
+          "amount": 0,
+          "adjustflag": 0,
+          "turn": 1,
+          "tradestatus": 0,
+          "pctChg": 0,
+          "isST": 0
+        },
+        "sha256": "f90934d0dae9c6d291f314d2ad7f809bae82dc5a96f0197803e5e73b3cba9df8"
+      },
+      {
+        "path": "sz.000413.parquet",
+        "code": "sz.000413",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:55:01.638919+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 1886,
+        "start": "2017-01-03",
+        "end": "2024-10-11",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 80,
+          "amount": 80,
+          "adjustflag": 0,
+          "turn": 140,
+          "tradestatus": 0,
+          "pctChg": 80,
+          "isST": 0
+        },
+        "sha256": "7ea964b7647f6a31cdfa15e58fbd86e82a6951c1a5a6e063cc0d6ff55c40015d"
+      },
+      {
+        "path": "sh.600221.parquet",
+        "code": "sh.600221",
+        "provider": "baostock",
+        "api": "query_history_k_data_plus",
+        "data_kind": "real",
+        "adjustment": "hfq / adjustflag=1",
+        "retrieved_at_utc": "2026-09-28T06:55:07.002878+00:00",
+        "requested_start": "2017-01-01",
+        "requested_end": "2025-12-31",
+        "rows": 2186,
+        "start": "2017-01-03",
+        "end": "2025-12-31",
+        "missing_values": {
+          "date": 0,
+          "code": 0,
+          "open": 0,
+          "high": 0,
+          "low": 0,
+          "close": 0,
+          "volume": 2,
+          "amount": 2,
+          "adjustflag": 0,
+          "turn": 131,
+          "tradestatus": 0,
+          "pctChg": 2,
+          "isST": 0
+        },
+        "sha256": "d087af221fbfcfc312cb1ceac1d21db3b194ab1b734b5ad4d972329cff79bdc1"
+      },
+      {
+        "path": "universe.csv",
+        "sha256": "0f503ec41302b742adc9f960cf9cb94102aee228104daae4de6a4ab94a30d028",
+        "provider": "baostock",
+        "data_kind": "real"
+      },
+      {
+        "path": "calendar.csv",
+        "sha256": "567a0657681a9fa2e9e20e5a8d571836710fa315d0051fb90367266b481464c0",
+        "provider": "baostock",
+        "data_kind": "real"
+      }
+    ],
+    "limitations": [
+      "Historical cohort is not a dynamically reconstituted index or the full A-share market.",
+      "Provider historical revisions and adjustment methodology are not independently audited.",
+      "Delisting terminal proceeds and actual executable prices are not available."
+    ]
+  },
+  "environment": {
+    "git_revision": "4a501c1da1f5ea38769fcb3ae20260cb695bc271",
+    "git_dirty": false,
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "scikit-learn": "1.8.0",
+      "lightgbm": "4.6.0",
+      "xgboost": "3.4.1",
+      "baostock": "0.9.4",
+      "matplotlib": "3.10.9",
+      "pyarrow": "21.0.0"
+    },
+    "source_sha256": {
+      "src/asharerank/cli.py": "271b98ed396366a82b1a3d111356a86921ac20916676c0eacec67359faba5403",
+      "src/asharerank/config.py": "e882629029b6d9d83a5444caae9b77ceadcd08ed49863c9f3ae53d7d0f104b1d",
+      "src/asharerank/data_service.py": "5cbf41d628f140ae98662065679d38ec95eb387ab3f6e2e4ac72180ecb14c24f",
+      "src/asharerank/db.py": "8422aec6426ccc5764240abd2cda460e3711b0fbcff725ac899cf94a81cc3909",
+      "src/asharerank/portfolio.py": "b5c7eeed3b843a42b6a9d66b93ddd120e457893927c744d044eaa0eae797c9de",
+      "src/asharerank/schemas.py": "6480b1c2a131e77f69c96eed3164787e0b6e18d013365ade8e6d3da90b174afc",
+      "src/asharerank/settings.py": "d8b04f57efd742eb6e686ac417c31e6516422e0fc6f75dda24e9450988c772f9",
+      "src/asharerank/__init__.py": "ca2861814363075909afb0b965f4e90becf01d865bdd9458d10dda2e76a4360a",
+      "src/asharerank/adapters/base.py": "c0f4d39f3261f1b94f0588103322c17bd7c813c53e59b3e277922c56ee9b61e2",
+      "src/asharerank/adapters/master.py": "f4f0acdb3022754ef6ac89517912258c40bac23f38ddd84d6c6229f4a3c701fd",
+      "src/asharerank/adapters/sequence.py": "48ddbc5ac49a4579ac49d74ff836ffe50b485f0de058806f9f97e28b884c8dae",
+      "src/asharerank/adapters/tabular.py": "1b730919bb3b9a2b9e1eb41a0ba736ed0acaacc72d73d999d92d597d56ba7f14",
+      "src/asharerank/adapters/__init__.py": "0ef089f3c5b8e513b6f1e0aebf3e48073fd3deb54805da3173793cb4d5739c37",
+      "src/asharerank/data/dataset.py": "b4161ee72f8a024db3e791ff6d1c57b7e84d6f6b67fbce083b2c0cfcb34b0ebd",
+      "src/asharerank/data/features.py": "3897fae44824365d09f917578023b2a27695c73b09e5ab536fccec48a2ebcff6",
+      "src/asharerank/data/labels.py": "74fcb72f169040af60112d88de4acb958cfe806badd8bd4b29adfcb13ac40c72",
+      "src/asharerank/data/public_history.py": "7b52d9f9b0560cb044ee28b2c1deaf3d31a8e92960477d94d336179305fa1c00",
+      "src/asharerank/data/splits.py": "f7d7f37510d85bc64d8f857a96f86a619164d4aa2c81c4f337a14c625245a2e7",
+      "src/asharerank/data/validation.py": "efbc65acac461ef5f1dad4699df25606f50b2e27af1f92b271c603845f5933c0",
+      "src/asharerank/data/__init__.py": "18f38aa86bd0b3da753e2629bec8416b6b69832a63186e3342f739f4f242327e",
+      "src/asharerank/evaluation/baseline_report.py": "e6624a72cffc23e9729943d345778eea96e8471b9e641e8d4177e5d34a054bd0",
+      "src/asharerank/evaluation/comparison.py": "8999519f37c531e110daefd0be9ef3ecfb18caa755b77b1871d79cd31c1252b4",
+      "src/asharerank/evaluation/efficiency_metrics.py": "994b23b117d63c771da58ff4c3c7bc56dbc03002e88d403bbf221ca1529b53e7",
+      "src/asharerank/evaluation/ic_metrics.py": "f173abc4b826f8212adb5b269d642d5bfe3035be8f86eb0e9afdd88562e197c5",
+      "src/asharerank/evaluation/ranking_metrics.py": "1acaa5fe299b7757d61915721b7e94e7f9e3697dd6ce897eeb90144bcf4d3ecd",
+      "src/asharerank/evaluation/report.py": "76202db975bfb47de75b4ea22660154ccfb63fa351e5c589925122e6782642fb",
+      "src/asharerank/evaluation/__init__.py": "561e1a943950b4a0bedbb97c974cc5bdaf155b31a8d78fe5b67000718fa40d6c",
+      "src/asharerank/forecasting/benchmark.py": "f566228b9c05abf80537faa2f079fde4c5f09683866a9b9ff73991638d6c5b96",
+      "src/asharerank/forecasting/benchmark_lgbm_step.py": "2181daa031151655defcccb5b7496801b717f8e4f54384b71d1f0ee05d5b60a9",
+      "src/asharerank/forecasting/benchmark_lstm_step.py": "d6f6cfac81b85c79c93f7a11d5626e9a1923e575240a1d42222546e196b47689",
+      "src/asharerank/forecasting/benchmark_report.py": "e908073ecbacbf19ed9af1b45a5d795b743eb640283985a081958571b9450754",
+      "src/asharerank/forecasting/benchmark_stockmixer_step.py": "767d50e74d67aff2335b94afe01cc00cb18047e1de90c2c005ccb926d8b4bc9c",
+      "src/asharerank/forecasting/benchmark_xgboost_step.py": "e9f3d391b02c8614e9bb12f50fa328e782c272168b88da9708dc87288d30d792",
+      "src/asharerank/forecasting/booster.py": "46d85aeb8b39a1c826c9e9aa94566cf49a349fdab9c061e099689b1d59c7d8e4",
+      "src/asharerank/forecasting/canonical.py": "107a5f08b0419ecd758360d07a873dfc9e9d3eeafe86fa42c456540632a48824",
+      "src/asharerank/forecasting/dataset.py": "dd78eccdec02a592ba790b92a0e7768e2265e0d464bd0732f162a15d416806ec",
+      "src/asharerank/forecasting/evaluate.py": "1bf4e49333cd638d8aa235d1badc676870c9c6d23b0937c17530115a5df5775c",
+      "src/asharerank/forecasting/features.py": "489bcdffa70b42fe94c70ad98c490b0e5db293f192d8ea93ab1bc262314db9f7",
+      "src/asharerank/forecasting/fundamentals.py": "fed675ca2df4fa63a1b98f3679b4c0c472a7c94f13f64a87e8f157930bf61bf0",
+      "src/asharerank/forecasting/industry.py": "5be22ff90e38d1fe0f06c753f5e970ad9e116163af42cf3c5d24c09871c63dd7",
+      "src/asharerank/forecasting/registry.py": "4976167b18114f997f27d54be81a0c50a8e1fe374d5db46b509effc1642227e1",
+      "src/asharerank/forecasting/simple_benchmark.py": "cc85deccb7ab19c8729f05acc23bc89b5f110be50c2c26d10eb9d76f3db2e098",
+      "src/asharerank/forecasting/train.py": "260e2d89b633682b730085fc0005677ac76570911d83a77409db71cb05307e59",
+      "src/asharerank/forecasting/universe.py": "9f6164f474ed6b2dd832de590f672ea096c0b5373b606bfebf451e71729ba4e2",
+      "src/asharerank/forecasting/__init__.py": "bad076c3d0c4d37deccfd2cf8d319d02f374b5bb57fec967d8d2bc4d1282a420",
+      "src/asharerank/models/base.py": "1c4373e48e2ee81c2e7358b960997b5877e3fbdb7619b65af4f361017fec0dcf",
+      "src/asharerank/models/lightgbm.py": "24dadf98c391f729c98fff8f9853a584a0dc8597e906146388943fbc7f180c0e",
+      "src/asharerank/models/lite_rank.py": "20a75dcce1c45cdb904b3153899da8e15571e04c167a21955d3dafe55aa9538e",
+      "src/asharerank/models/random_forest.py": "67a9c75a49d21bf45bd34a26a417ef2c2e63758db9936952fa7a2f9719247a1a",
+      "src/asharerank/models/registry.py": "c20fadf74a058a5333b0b947213e93be71cfab96b2b97656243036237444b53f",
+      "src/asharerank/models/ridge.py": "36f0d7b708aca7f4c721fc296f5ad95cbd06c2e154b8bc503a56880de6b3c02a",
+      "src/asharerank/models/__init__.py": "9ce63c652c52156ab25db4aacccd0a8ba96a4d0a362ae2b324c287b29802a142",
+      "src/asharerank/prediction/contract.py": "946906e4fb7616efa295ce7cf93ca6cb06336e772ea727e1ff1bcd8f9e13d6a8",
+      "src/asharerank/prediction/ranking.py": "cef51a719f6351b6466602923d7e5134dd1708d4bbe9c531d079b0fabe30b05e",
+      "src/asharerank/prediction/selection.py": "8a8ca64b9f331bae7473956cdcebf37bcebe8e6c8f9dd524386c5608c8b52260",
+      "src/asharerank/prediction/__init__.py": "c63fdefcd937ccfe7dc818b3f9521b2105c9e273a408b64fd51bbad21e75d5c4",
+      "src/asharerank/risk/alerts.py": "05b1c75ee77401dfa42e59b35d13b44ef329714e9e796facf2f126087d8590b9",
+      "src/asharerank/risk/backtest.py": "95226df6b11a1fb8cb851f96636a44e54a73090f672f890916b7bf0db7c79239",
+      "src/asharerank/risk/covariance.py": "17e51b0faa70b946a9b0d67e830da1125f363036e16140ac618df71e86739437",
+      "src/asharerank/risk/factor_model.py": "53ae81d6439faa13d2dcf532ca3cac42ffab5209def0c850fb6f9be4dd12604b",
+      "src/asharerank/risk/market.py": "c2834e17c6acc62dfbe205e74ce07a883214010ea4b95fef83a6aee438bb3f32",
+      "src/asharerank/risk/metrics.py": "1b9f85dfc670e91a9d7db61ebfdf7126e970b5cccf00d7b7cea39529cfee6653",
+      "src/asharerank/risk/report.py": "3a10a2e9772d68454b8059629f48aa8a29d3f4f5d512de2105fa6f0f77e2444d",
+      "src/asharerank/risk/shapley.py": "5d99530ef321fd0e2b995261c39f8fada4876525fece5f1b60ac757dd1a7dcc3",
+      "src/asharerank/risk/stress.py": "8b71c21a728b0f74a3a1152c447632ee6896da959d103660d59d94ac7f172f36",
+      "src/asharerank/risk/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/asharerank/training/reproducibility.py": "54760651be3672dcd510526f31c386f6be643cd4ae8808fb22521bfc6754fd9b",
+      "src/asharerank/training/service.py": "a66595843fb9b3323bcd7aa3d07b9a9f3c182058a118ff9cc5667ce22a6e1972",
+      "src/asharerank/training/trainer.py": "59965ae2b4b24afa658b2da8d1c93946dc3b541532576ee4773a2821cd5358d3",
+      "src/asharerank/training/__init__.py": "e6812e5c3cd3b4c88a2d91826b8926f18a8b085d43c6a79432098c7b3fda48c2",
+      "src/asharerank/prediction/inference/alpha.py": "56f1d483f2dd39b1bcadd2837e0d7f6402af29f9e6f31cf4b82c3a2e1ed9109c",
+      "src/asharerank/prediction/inference/alpha_jobs.py": "b3bb7facbd096b5d0ffa6799e4c4ce997a0cd377387bc3ad42162b2d079210bc",
+      "src/asharerank/prediction/inference/engine.py": "523cb5e90c9b96dbaa75ab50a05a2a234f68f39db6edda6713e5f6750ecafdfc",
+      "src/asharerank/prediction/inference/service.py": "10237eecdc0f21924b1d6ecdffebd915b1aa6fb1802fc8d6668b101263ce8753",
+      "src/asharerank/prediction/inference/stockmixer.py": "35683cabc409efe1298ec6de5994be89dd2346dcd55c7ad8b093a26104c81b1d",
+      "src/asharerank/prediction/inference/tree_worker.py": "319a2e2549864c0e6898d388dd257c50dccebd9bfa9725e22e7f15a144ee710a",
+      "src/asharerank/prediction/inference/__init__.py": "55cfae318482edb56dbf5a48b3e14b6168a93e52aac82b69e3d2e61522e28f12",
+      "src/asharerank/models/custom/__init__.py": "353b976e1a5e095e835297b642829461a80198ea79ffae5fca0418c48c12ae8a",
+      "src/asharerank/models/master/config.py": "764a612905e66a54b631b0463ce31109827e59a49e5cab4d89e512193d5694b5",
+      "src/asharerank/models/master/model.py": "bb94e701d974851627f951ee8bfd10a402a4d7cc0b49772306e180470416493f",
+      "src/asharerank/models/master/__init__.py": "bf20ee88f1a9405299af59ef131d8faaac369c1ba16668699248f0c5da475eac",
+      "src/asharerank/forecasting/experimental/fundamentals_compare.py": "0cb6cd2ef3c565b6bb2170a44ae6a172b88b79ff64e7220564a8aa3423433ea7",
+      "src/asharerank/forecasting/experimental/industry_compare.py": "db6814765d168ebdf38de08421cf6e23414b117503c10d2338653347d99d066f",
+      "src/asharerank/forecasting/experimental/lgbm_baseline.py": "8776c7a11456cfb0e78d5c476ee8395eee0c40f5c017e571ee5e05bcb7b72d72",
+      "src/asharerank/forecasting/experimental/report.py": "2a812fea50d13da8fa43a501b9d13ca32f0819f143aef8820b32f2cb22c45418",
+      "src/asharerank/forecasting/experimental/xgboost_baseline.py": "148e3339bba0d4c2e0e7ed84280636a5d94c5216ad2b6fff5df9e6d0d951e1d9",
+      "src/asharerank/forecasting/experimental/__init__.py": "6876f92c0a80f98560cd926c90ec67c2e749bbbe0a058efddabd6cd2d246248a",
+      "src/asharerank/forecasting/experimental/lstm/config.py": "f4ff6af6bdb5bfabe103d5698bdd90c044dfffca405dbbf43a67cf0f01f8ec64",
+      "src/asharerank/forecasting/experimental/lstm/dataset.py": "3fea2407ca7903362c45d4165e03f99ddb62e91788064335db979cb5c3f7df72",
+      "src/asharerank/forecasting/experimental/lstm/model.py": "0c94f90e8636dcc125821ed8aa3ceb4626e4d9e5a6416fb11062ee2215616a80",
+      "src/asharerank/forecasting/experimental/lstm/train.py": "9cde19afbee37bbec407271d3177791c9e5d6647338e0128bff63b7589f3b1a7",
+      "src/asharerank/forecasting/experimental/lstm/__init__.py": "675d92cd919bb5e1813d9da88c7e2288a247a14ac7aa89ac9e18d2e040ff6c48",
+      "src/asharerank/forecasting/experimental/stockmixer/config.py": "d143471d8f7ccfcb3d57eb06439f0b414638026cf07788fb7cb8b7dc94873a9b",
+      "src/asharerank/forecasting/experimental/stockmixer/data.py": "5ef032bf08d9c39edca005fca5c8329ae67b6211bb02f21c1923cf943b5c1a6c",
+      "src/asharerank/forecasting/experimental/stockmixer/losses.py": "de5efe83379b42becba987d6f3b7ec86bb4e394a299906e5146740974131af6a",
+      "src/asharerank/forecasting/experimental/stockmixer/metrics.py": "b887e19f3a758ad53eccf5c762df045eef6fee05a808d2c872f546956f3ef8e9",
+      "src/asharerank/forecasting/experimental/stockmixer/model.py": "cdcfa5965e00d03682c4ae9b5df80a014dd252e20f7a0720f08a84fa8e8f0087",
+      "src/asharerank/forecasting/experimental/stockmixer/train.py": "0f5d723db287465f582c96f310ee5be3cc0c4b9e447a51abe9a3b7b6b75e0d4f",
+      "src/asharerank/forecasting/experimental/stockmixer/__init__.py": "311f686bcae6d2cf19f8622698dd431ec9b5f5dd41c1714637c46d8f671f6a26",
+      "scripts/research/build_dataset.py": "5897d623662627bba2b96655beedfcf4698b131b857ba9584bfa040a7c2e69d0",
+      "scripts/research/check_data_sources.py": "49f544f53888e931f64e900edad128a566e9f8b39922f25eeb6d238f523edb6b",
+      "scripts/research/fetch_fundamentals.py": "aca4280c2c9e7e840a6eae7cef8b649af1965102e7986d647badb885a4a34c4d",
+      "scripts/research/fetch_index.py": "89b44ae724ec75c80c5007e3a573fa388417744a68b67c597446d8d27e37bd5c",
+      "scripts/research/fetch_universe.py": "71bbf8318b7b90c88fa43a36c6536129ff3fcad2af5064614aa0f6af4d82b2d6",
+      "scripts/research/list_experiments.py": "d62f9f2fa4ccb8882069432bbcff579ab40112e908147a31106ae46e334fad05",
+      "scripts/research/run_benchmark.py": "056677e44c96cbc371ada74c81411077ae1ab30ccf5711f4defdfada4ad34770",
+      "scripts/research/run_public_baselines.py": "a6b856a19b3d884064c2519cc7c71d98f9304efe3e3a9fc7f5311192efc7b190",
+      "scripts/research/train_fundamentals_compare.py": "b55539035e55bd03059419429a020fa7a9fb2ad22772cc0e65033f5fb3408368",
+      "scripts/research/train_industry_compare.py": "94a0797887654523c1d49ab25f724eb1da02ac07ff9334307478f7da4ec62414",
+      "scripts/research/train_lstm.py": "3119f9775e80da17f3d30378827ad8740f1175663a587c11093076ac2482232b",
+      "scripts/research/train_models.py": "89736dc13b92493de0231d632205fe5a4a0dcba17f53eeae58da8c5c99e72a67",
+      "scripts/research/train_stockmixer.py": "6e6be9f1576a286c6c8df4559d6c97782a991bc9ec3e44a1509ec884cc0c87e0",
+      "scripts/research/train_stockmixer_multiseed.py": "a4e69b14d7c01dfb293d0b0fe762411f7ef0a1f7e436882cd79b9f6ae42c320b",
+      "scripts/research/train_xgboost.py": "3801b05494fe249eb35f9748b49fb2a5a812961039d295cf900aa713416ec17c",
+      "scripts/research/_bm_get_universe.py": "6709bf7fbfe3bec5eed87d814ac322eef18340d1aeb225d3954e6f73173c42de",
+      "scripts/research/_bm_lgbm_step.py": "d08103518bc9299cd389bbc537e50a596c05fe41cd47b55329fb473c5f98e5e5",
+      "scripts/research/_bm_lstm_step.py": "e6f4b258a64bece5f600d2f0f880c9acb19b5994ed9ff5624121f96078eaa97a",
+      "scripts/research/_bm_stockmixer_step.py": "a904b2eebc1a627f69d22d29a0ab2923436df7488ff0166f4b58c7125bf0cfff",
+      "scripts/research/_bm_train_lgbm_candidate.py": "9534280da08b11aa39a9684df20790cafc91e5bc0ba52587e877c2d6b0a1199b",
+      "scripts/research/_bm_xgboost_step.py": "013d3c21aeb4e3b5743aad89f83ae4348e65e1c7f72c1cdb84d24831bedf0179",
+      "configs/public_baselines.json": "f3187d125d2dce07689db5e742876068235a363c9d8666fa429fb3ceb06ff159"
+    },
+    "data_manifest_sha256": "24bc940b650a84b127207fc0a9ec05d07b453466762d59ef821e5209d2735d15"
+  },
+  "portfolio_metrics": [
+    {
+      "model": "Momentum",
+      "cost_bps": 0,
+      "total_return": 0.1222315839115077,
+      "cagr": 0.0408400714511036,
+      "sharpe": 0.2809131258792836,
+      "max_drawdown": -0.3760938421408719,
+      "annual_two_way_turnover": 41.65866228360061,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Momentum",
+      "cost_bps": 10,
+      "total_return": -0.0048106651304316,
+      "cagr": -0.0016724469425855,
+      "sharpe": 0.1301811604781182,
+      "max_drawdown": -0.4115022964249359,
+      "annual_two_way_turnover": 41.637244677207214,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Momentum",
+      "cost_bps": 25,
+      "total_return": -0.1689102820399437,
+      "cagr": -0.0622022386640627,
+      "sharpe": -0.0952343770566516,
+      "max_drawdown": -0.4608832954524742,
+      "annual_two_way_turnover": 41.60585093892327,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Momentum",
+      "cost_bps": 50,
+      "total_return": -0.3845066621402434,
+      "cagr": -0.155036674736955,
+      "sharpe": -0.4676182009437663,
+      "max_drawdown": -0.5387829497522837,
+      "annual_two_way_turnover": 41.55592009857883,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Ridge",
+      "cost_bps": 0,
+      "total_return": 0.3053335309663278,
+      "cagr": 0.0969019066072245,
+      "sharpe": 0.5535207923151799,
+      "max_drawdown": -0.238749116175402,
+      "annual_two_way_turnover": 57.50055134172285,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Ridge",
+      "cost_bps": 10,
+      "total_return": 0.1060894990040488,
+      "cagr": 0.0356188057486706,
+      "sharpe": 0.2719006083162981,
+      "max_drawdown": -0.261267902726312,
+      "annual_two_way_turnover": 57.45367025280392,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Ridge",
+      "cost_bps": 25,
+      "total_return": -0.1371369703950197,
+      "cagr": -0.04990956981491,
+      "sharpe": -0.1478936875231208,
+      "max_drawdown": -0.3355071177081858,
+      "annual_two_way_turnover": 57.38497817733949,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Ridge",
+      "cost_bps": 50,
+      "total_return": -0.4294379224084744,
+      "cagr": -0.1769789843303403,
+      "sharpe": -0.8314563435176061,
+      "max_drawdown": -0.5131797731379105,
+      "annual_two_way_turnover": 57.274069418189015,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "ElasticNet",
+      "cost_bps": 0,
+      "total_return": 0.6164731056138539,
+      "cagr": 0.1813964782960038,
+      "sharpe": 1.03247038473879,
+      "max_drawdown": -0.1973698549844444,
+      "annual_two_way_turnover": 38.15345498415776,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "ElasticNet",
+      "cost_bps": 10,
+      "total_return": 0.447977510193251,
+      "cagr": 0.1371077572407129,
+      "sharpe": 0.8153445992370105,
+      "max_drawdown": -0.2186960505940083,
+      "annual_two_way_turnover": 38.1249762760556,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "ElasticNet",
+      "cost_bps": 25,
+      "total_return": 0.2277318301689526,
+      "cagr": 0.0738125934824258,
+      "sharpe": 0.4897822683445555,
+      "max_drawdown": -0.2496256371988293,
+      "annual_two_way_turnover": 38.0838324263923,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "ElasticNet",
+      "cost_bps": 50,
+      "total_return": -0.0672101847794212,
+      "cagr": -0.0238608515296002,
+      "sharpe": -0.0479378274815205,
+      "max_drawdown": -0.3018932893294273,
+      "annual_two_way_turnover": 38.0197386945746,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "RandomForest",
+      "cost_bps": 0,
+      "total_return": 0.0210266365477838,
+      "cagr": 0.0072489769371288,
+      "sharpe": 0.1373879540855037,
+      "max_drawdown": -0.3403418651952918,
+      "annual_two_way_turnover": 57.96223478814573,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "RandomForest",
+      "cost_bps": 10,
+      "total_return": -0.1359736523412371,
+      "cagr": -0.0494651489608272,
+      "sharpe": -0.1394086194400836,
+      "max_drawdown": -0.3783909707794907,
+      "annual_two_way_turnover": 57.92226567677175,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "RandomForest",
+      "cost_bps": 25,
+      "total_return": -0.3273603429679612,
+      "cagr": -0.128591054527276,
+      "sharpe": -0.5510757234420677,
+      "max_drawdown": -0.4681405969087704,
+      "annual_two_way_turnover": 57.86366195354564,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "RandomForest",
+      "cost_bps": 50,
+      "total_return": -0.5568220735039535,
+      "cagr": -0.2460810890026576,
+      "sharpe": -1.2196839698725626,
+      "max_drawdown": -0.610247499735685,
+      "annual_two_way_turnover": 57.769117521425216,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "LightGBM",
+      "cost_bps": 0,
+      "total_return": 0.2553299119720038,
+      "cagr": 0.0821303901523107,
+      "sharpe": 0.4615135066159235,
+      "max_drawdown": -0.3924082082222639,
+      "annual_two_way_turnover": 61.53591557363239,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "LightGBM",
+      "cost_bps": 10,
+      "total_return": 0.0514319869277741,
+      "cagr": 0.0175609013874435,
+      "sharpe": 0.1883574483051538,
+      "max_drawdown": -0.4221719753859536,
+      "annual_two_way_turnover": 61.49037994266148,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "LightGBM",
+      "cost_bps": 25,
+      "total_return": -0.193984160483847,
+      "cagr": -0.0721213995081934,
+      "sharpe": -0.218481208557987,
+      "max_drawdown": -0.4758746319301453,
+      "annual_two_way_turnover": 61.42301152943296,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "LightGBM",
+      "cost_bps": 50,
+      "total_return": -0.4823940323741487,
+      "cagr": -0.2043409241677867,
+      "sharpe": -0.8810101652029538,
+      "max_drawdown": -0.5839085155338273,
+      "annual_two_way_turnover": 61.31437135774086,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "XGBoost",
+      "cost_bps": 0,
+      "total_return": 0.1534886925306777,
+      "cagr": 0.0508126495090579,
+      "sharpe": 0.3345019076528222,
+      "max_drawdown": -0.2970852237582353,
+      "annual_two_way_turnover": 58.14957203827322,
+      "blocked_orders": 1,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "XGBoost",
+      "cost_bps": 10,
+      "total_return": -0.0244329751936643,
+      "cagr": -0.0085494369033908,
+      "sharpe": 0.0682897884537089,
+      "max_drawdown": -0.3378547934924343,
+      "annual_two_way_turnover": 58.10763152893088,
+      "blocked_orders": 1,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "XGBoost",
+      "cost_bps": 25,
+      "total_return": -0.2411550713114874,
+      "cagr": -0.0913424752391701,
+      "sharpe": -0.328827121215859,
+      "max_drawdown": -0.4216505819236142,
+      "annual_two_way_turnover": 58.04591880804448,
+      "blocked_orders": 1,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "XGBoost",
+      "cost_bps": 50,
+      "total_return": -0.5006983087460495,
+      "cagr": -0.2142225405959785,
+      "sharpe": -0.977533049875598,
+      "max_drawdown": -0.5439475266177851,
+      "annual_two_way_turnover": 57.94812418547465,
+      "blocked_orders": 1,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "EqualWeight",
+      "cost_bps": 0,
+      "total_return": 0.4249521339762536,
+      "cagr": 0.1307984897492888,
+      "sharpe": 0.6745616626542549,
+      "max_drawdown": -0.2433175263225685,
+      "annual_two_way_turnover": 1.8915534455757883,
+      "blocked_orders": 99,
+      "stale_position_days": 355,
+      "terminal_invested_weight": 0.0278126651008979,
+      "n_days": 726
+    },
+    {
+      "model": "EqualWeight",
+      "cost_bps": 10,
+      "total_return": 0.4170740593008302,
+      "cagr": 0.1286245151692853,
+      "sharpe": 0.6659069366744494,
+      "max_drawdown": -0.2435909039761501,
+      "annual_two_way_turnover": 1.8954409025542684,
+      "blocked_orders": 99,
+      "stale_position_days": 355,
+      "terminal_invested_weight": 0.0278457883659979,
+      "n_days": 726
+    },
+    {
+      "model": "EqualWeight",
+      "cost_bps": 25,
+      "total_return": 0.4052869559894989,
+      "cagr": 0.1253570495555123,
+      "sharpe": 0.6528365835129921,
+      "max_drawdown": -0.2439997017596972,
+      "annual_two_way_turnover": 1.9017208103987209,
+      "blocked_orders": 99,
+      "stale_position_days": 355,
+      "terminal_invested_weight": 0.0278973631900438,
+      "n_days": 726
+    },
+    {
+      "model": "EqualWeight",
+      "cost_bps": 50,
+      "total_return": 0.3856264751527682,
+      "cagr": 0.1198669819808053,
+      "sharpe": 0.6307057853551409,
+      "max_drawdown": -0.2446776772994087,
+      "annual_two_way_turnover": 1.9128067142470075,
+      "blocked_orders": 99,
+      "stale_position_days": 355,
+      "terminal_invested_weight": 0.0279866259788362,
+      "n_days": 726
+    }
+  ],
+  "offset_robustness": [
+    {
+      "model": "Momentum",
+      "offset": 0,
+      "total_return": -0.0048106651304316,
+      "cagr": -0.0016724469425855,
+      "sharpe": 0.1301811604781182,
+      "max_drawdown": -0.4115022964249359,
+      "annual_two_way_turnover": 41.637244677207214,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Momentum",
+      "offset": 1,
+      "total_return": 0.0236490630843628,
+      "cagr": 0.0081462058106036,
+      "sharpe": 0.1638289048347926,
+      "max_drawdown": -0.3424730049344504,
+      "annual_two_way_turnover": 42.155649178906856,
+      "blocked_orders": 8,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Momentum",
+      "offset": 2,
+      "total_return": 0.2645832669181878,
+      "cagr": 0.0848925116730954,
+      "sharpe": 0.4350183478089542,
+      "max_drawdown": -0.3093024336317069,
+      "annual_two_way_turnover": 40.12877632635272,
+      "blocked_orders": 14,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Momentum",
+      "offset": 3,
+      "total_return": 0.4989146335419905,
+      "cagr": 0.1508360805559003,
+      "sharpe": 0.6331643025340122,
+      "max_drawdown": -0.2635902933297549,
+      "annual_two_way_turnover": 40.46148203148204,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Momentum",
+      "offset": 4,
+      "total_return": 0.2288153048906656,
+      "cagr": 0.0741414319443043,
+      "sharpe": 0.3926859774120396,
+      "max_drawdown": -0.3091524871314905,
+      "annual_two_way_turnover": 41.26453810907004,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Ridge",
+      "offset": 0,
+      "total_return": 0.1060894990040488,
+      "cagr": 0.0356188057486706,
+      "sharpe": 0.2719006083162981,
+      "max_drawdown": -0.261267902726312,
+      "annual_two_way_turnover": 57.45367025280392,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Ridge",
+      "offset": 1,
+      "total_return": 0.1308537814249972,
+      "cagr": 0.0436089083556567,
+      "sharpe": 0.3122504812762777,
+      "max_drawdown": -0.240595240680842,
+      "annual_two_way_turnover": 58.55405160028086,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Ridge",
+      "offset": 2,
+      "total_return": 0.1293145981338028,
+      "cagr": 0.0431156452297336,
+      "sharpe": 0.3105724865549513,
+      "max_drawdown": -0.306179024327342,
+      "annual_two_way_turnover": 58.00340080292452,
+      "blocked_orders": 10,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Ridge",
+      "offset": 3,
+      "total_return": 0.0175884058505835,
+      "cagr": 0.0060703489928219,
+      "sharpe": 0.1276922824116714,
+      "max_drawdown": -0.2574555243229041,
+      "annual_two_way_turnover": 57.96563335968014,
+      "blocked_orders": 5,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "Ridge",
+      "offset": 4,
+      "total_return": -0.0345802160040753,
+      "cagr": -0.012141189913344,
+      "sharpe": 0.0353117247572191,
+      "max_drawdown": -0.3370563239874008,
+      "annual_two_way_turnover": 58.23949575784277,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "ElasticNet",
+      "offset": 0,
+      "total_return": 0.447977510193251,
+      "cagr": 0.1371077572407129,
+      "sharpe": 0.8153445992370105,
+      "max_drawdown": -0.2186960505940083,
+      "annual_two_way_turnover": 38.1249762760556,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "ElasticNet",
+      "offset": 1,
+      "total_return": 0.391971472374929,
+      "cagr": 0.1216443099252033,
+      "sharpe": 0.7363404187093286,
+      "max_drawdown": -0.2385603649146964,
+      "annual_two_way_turnover": 37.65806348939966,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "ElasticNet",
+      "offset": 2,
+      "total_return": 0.6056923610881868,
+      "cagr": 0.1786556120040034,
+      "sharpe": 1.0297448877305293,
+      "max_drawdown": -0.2064115960894875,
+      "annual_two_way_turnover": 38.853414871806734,
+      "blocked_orders": 52,
+      "stale_position_days": 205,
+      "terminal_invested_weight": 0.084845475667267,
+      "n_days": 726
+    },
+    {
+      "model": "ElasticNet",
+      "offset": 3,
+      "total_return": 0.3395131721773232,
+      "cagr": 0.1067874958912289,
+      "sharpe": 0.6745569509342212,
+      "max_drawdown": -0.2213556427625067,
+      "annual_two_way_turnover": 38.59539194164492,
+      "blocked_orders": 5,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "ElasticNet",
+      "offset": 4,
+      "total_return": 0.2841892572371942,
+      "cagr": 0.0907015873399688,
+      "sharpe": 0.5863792353604566,
+      "max_drawdown": -0.2341078892095973,
+      "annual_two_way_turnover": 38.384757215771366,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "RandomForest",
+      "offset": 0,
+      "total_return": -0.1359736523412371,
+      "cagr": -0.0494651489608272,
+      "sharpe": -0.1394086194400836,
+      "max_drawdown": -0.3783909707794907,
+      "annual_two_way_turnover": 57.92226567677175,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "RandomForest",
+      "offset": 1,
+      "total_return": 0.0869133750242279,
+      "cagr": 0.0293510940842005,
+      "sharpe": 0.2402061742831482,
+      "max_drawdown": -0.3410476053939175,
+      "annual_two_way_turnover": 58.71505099238251,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "RandomForest",
+      "offset": 2,
+      "total_return": -0.0032101317062271,
+      "cagr": -0.0011154303351716,
+      "sharpe": 0.0958664616187183,
+      "max_drawdown": -0.3424053727325907,
+      "annual_two_way_turnover": 58.58039181299896,
+      "blocked_orders": 14,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "RandomForest",
+      "offset": 3,
+      "total_return": -0.12525845408971,
+      "cagr": -0.0453898884085366,
+      "sharpe": -0.1259528178757221,
+      "max_drawdown": -0.3496874822574872,
+      "annual_two_way_turnover": 59.95248913246777,
+      "blocked_orders": 5,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "RandomForest",
+      "offset": 4,
+      "total_return": -0.0860335973090851,
+      "cagr": -0.0307437888437054,
+      "sharpe": -0.0635201778554615,
+      "max_drawdown": -0.3715898628603509,
+      "annual_two_way_turnover": 59.52455475280749,
+      "blocked_orders": 4,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "LightGBM",
+      "offset": 0,
+      "total_return": 0.0514319869277741,
+      "cagr": 0.0175609013874435,
+      "sharpe": 0.1883574483051538,
+      "max_drawdown": -0.4221719753859536,
+      "annual_two_way_turnover": 61.49037994266148,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "LightGBM",
+      "offset": 1,
+      "total_return": -0.0022075545980132,
+      "cagr": -0.0007668114961518,
+      "sharpe": 0.1135536736286766,
+      "max_drawdown": -0.4302531046206509,
+      "annual_two_way_turnover": 60.45769045019365,
+      "blocked_orders": 14,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "LightGBM",
+      "offset": 2,
+      "total_return": 0.1062875441820137,
+      "cagr": 0.0356831652201166,
+      "sharpe": 0.2662880743274298,
+      "max_drawdown": -0.3846596246623768,
+      "annual_two_way_turnover": 61.55181143819209,
+      "blocked_orders": 11,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "LightGBM",
+      "offset": 3,
+      "total_return": 0.0839220445925448,
+      "cagr": 0.0283668846941189,
+      "sharpe": 0.2352270821392678,
+      "max_drawdown": -0.3728938666612609,
+      "annual_two_way_turnover": 61.288501254670415,
+      "blocked_orders": 12,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "LightGBM",
+      "offset": 4,
+      "total_return": 0.1170902146276922,
+      "cagr": 0.0391824135354061,
+      "sharpe": 0.2833748710097362,
+      "max_drawdown": -0.3918184301836709,
+      "annual_two_way_turnover": 60.72057647426335,
+      "blocked_orders": 3,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "XGBoost",
+      "offset": 0,
+      "total_return": -0.0244329751936643,
+      "cagr": -0.0085494369033908,
+      "sharpe": 0.0682897884537089,
+      "max_drawdown": -0.3378547934924343,
+      "annual_two_way_turnover": 58.10763152893088,
+      "blocked_orders": 1,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "XGBoost",
+      "offset": 1,
+      "total_return": -0.0392241328887209,
+      "cagr": -0.0137931908348803,
+      "sharpe": 0.0534602124430776,
+      "max_drawdown": -0.3499094138825078,
+      "annual_two_way_turnover": 58.61622692638412,
+      "blocked_orders": 0,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "XGBoost",
+      "offset": 2,
+      "total_return": 0.1330838089154897,
+      "cagr": 0.0443227898063536,
+      "sharpe": 0.3040898399362874,
+      "max_drawdown": -0.3839182100055271,
+      "annual_two_way_turnover": 59.26765424659601,
+      "blocked_orders": 12,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "XGBoost",
+      "offset": 3,
+      "total_return": -0.0172820170328865,
+      "cagr": -0.0060328852998663,
+      "sharpe": 0.0819531275555629,
+      "max_drawdown": -0.3835025108031441,
+      "annual_two_way_turnover": 58.95268956906014,
+      "blocked_orders": 11,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "XGBoost",
+      "offset": 4,
+      "total_return": 0.0783906015728574,
+      "cagr": 0.026542244113471,
+      "sharpe": 0.2280966888866497,
+      "max_drawdown": -0.3746339646892459,
+      "annual_two_way_turnover": 60.12935633512625,
+      "blocked_orders": 1,
+      "stale_position_days": 0,
+      "terminal_invested_weight": 0.0,
+      "n_days": 726
+    },
+    {
+      "model": "EqualWeight",
+      "offset": 0,
+      "total_return": 0.4170740593008302,
+      "cagr": 0.1286245151692853,
+      "sharpe": 0.6659069366744494,
+      "max_drawdown": -0.2435909039761501,
+      "annual_two_way_turnover": 1.8954409025542684,
+      "blocked_orders": 99,
+      "stale_position_days": 355,
+      "terminal_invested_weight": 0.0278457883659979,
+      "n_days": 726
+    },
+    {
+      "model": "EqualWeight",
+      "offset": 1,
+      "total_return": 0.4113663493129029,
+      "cagr": 0.1270445239180595,
+      "sharpe": 0.6589478722604429,
+      "max_drawdown": -0.2437238356538591,
+      "annual_two_way_turnover": 1.906165697289792,
+      "blocked_orders": 99,
+      "stale_position_days": 355,
+      "terminal_invested_weight": 0.0282410698602799,
+      "n_days": 726
+    },
+    {
+      "model": "EqualWeight",
+      "offset": 2,
+      "total_return": 0.3987977667572209,
+      "cagr": 0.1235505597151687,
+      "sharpe": 0.6453813960871735,
+      "max_drawdown": -0.2444770736679801,
+      "annual_two_way_turnover": 1.8826559815335355,
+      "blocked_orders": 134,
+      "stale_position_days": 355,
+      "terminal_invested_weight": 0.0279022114028606,
+      "n_days": 726
+    },
+    {
+      "model": "EqualWeight",
+      "offset": 3,
+      "total_return": 0.3850987275566033,
+      "cagr": 0.1197189128738591,
+      "sharpe": 0.629130945175281,
+      "max_drawdown": -0.2449448018716341,
+      "annual_two_way_turnover": 1.8600190450721987,
+      "blocked_orders": 102,
+      "stale_position_days": 355,
+      "terminal_invested_weight": 0.027455856892163,
+      "n_days": 726
+    },
+    {
+      "model": "EqualWeight",
+      "offset": 4,
+      "total_return": 0.3913096622471048,
+      "cagr": 0.1214591744818991,
+      "sharpe": 0.6356632329706507,
+      "max_drawdown": -0.2434717823087197,
+      "annual_two_way_turnover": 1.982637162785927,
+      "blocked_orders": 62,
+      "stale_position_days": 205,
+      "terminal_invested_weight": 0.0140242042988923,
+      "n_days": 726
+    }
+  ],
+  "seed_metrics": [
+    {
+      "year": 2023,
+      "model": "Ridge",
+      "seed": 17,
+      "rank_ic": 0.0021681282655503
+    },
+    {
+      "year": 2023,
+      "model": "ElasticNet",
+      "seed": 17,
+      "rank_ic": 0.0774857733224434
+    },
+    {
+      "year": 2023,
+      "model": "RandomForest",
+      "seed": 17,
+      "rank_ic": -0.012031645417024
+    },
+    {
+      "year": 2023,
+      "model": "RandomForest",
+      "seed": 29,
+      "rank_ic": -0.0099154438787729
+    },
+    {
+      "year": 2023,
+      "model": "RandomForest",
+      "seed": 43,
+      "rank_ic": -0.0080498589538825
+    },
+    {
+      "year": 2023,
+      "model": "LightGBM",
+      "seed": 17,
+      "rank_ic": -0.007152330882059
+    },
+    {
+      "year": 2023,
+      "model": "LightGBM",
+      "seed": 29,
+      "rank_ic": -0.0046972989051181
+    },
+    {
+      "year": 2023,
+      "model": "LightGBM",
+      "seed": 43,
+      "rank_ic": -0.0082582313277528
+    },
+    {
+      "year": 2023,
+      "model": "XGBoost",
+      "seed": 17,
+      "rank_ic": -0.0121211031997856
+    },
+    {
+      "year": 2023,
+      "model": "XGBoost",
+      "seed": 29,
+      "rank_ic": -0.0007091138104309
+    },
+    {
+      "year": 2023,
+      "model": "XGBoost",
+      "seed": 43,
+      "rank_ic": -0.0137171067031117
+    },
+    {
+      "year": 2024,
+      "model": "Ridge",
+      "seed": 17,
+      "rank_ic": 0.0451494550806182
+    },
+    {
+      "year": 2024,
+      "model": "ElasticNet",
+      "seed": 17,
+      "rank_ic": 0.0735234621894599
+    },
+    {
+      "year": 2024,
+      "model": "RandomForest",
+      "seed": 17,
+      "rank_ic": 0.0457673639712593
+    },
+    {
+      "year": 2024,
+      "model": "RandomForest",
+      "seed": 29,
+      "rank_ic": 0.0458034518735246
+    },
+    {
+      "year": 2024,
+      "model": "RandomForest",
+      "seed": 43,
+      "rank_ic": 0.0457046205388833
+    },
+    {
+      "year": 2024,
+      "model": "LightGBM",
+      "seed": 17,
+      "rank_ic": 0.0381629466291737
+    },
+    {
+      "year": 2024,
+      "model": "LightGBM",
+      "seed": 29,
+      "rank_ic": 0.0334800595391504
+    },
+    {
+      "year": 2024,
+      "model": "LightGBM",
+      "seed": 43,
+      "rank_ic": 0.0386486391719595
+    },
+    {
+      "year": 2024,
+      "model": "XGBoost",
+      "seed": 17,
+      "rank_ic": 0.0440059943758117
+    },
+    {
+      "year": 2024,
+      "model": "XGBoost",
+      "seed": 29,
+      "rank_ic": 0.0502088957223044
+    },
+    {
+      "year": 2024,
+      "model": "XGBoost",
+      "seed": 43,
+      "rank_ic": 0.0479089726658356
+    },
+    {
+      "year": 2025,
+      "model": "Ridge",
+      "seed": 17,
+      "rank_ic": 0.0137540608961885
+    },
+    {
+      "year": 2025,
+      "model": "ElasticNet",
+      "seed": 17,
+      "rank_ic": 0.0205174173301241
+    },
+    {
+      "year": 2025,
+      "model": "RandomForest",
+      "seed": 17,
+      "rank_ic": 0.0255703998991458
+    },
+    {
+      "year": 2025,
+      "model": "RandomForest",
+      "seed": 29,
+      "rank_ic": 0.0274571144603184
+    },
+    {
+      "year": 2025,
+      "model": "RandomForest",
+      "seed": 43,
+      "rank_ic": 0.0277490980155858
+    },
+    {
+      "year": 2025,
+      "model": "LightGBM",
+      "seed": 17,
+      "rank_ic": 0.0465136105582477
+    },
+    {
+      "year": 2025,
+      "model": "LightGBM",
+      "seed": 29,
+      "rank_ic": 0.0556123881971685
+    },
+    {
+      "year": 2025,
+      "model": "LightGBM",
+      "seed": 43,
+      "rank_ic": 0.0478813235996473
+    },
+    {
+      "year": 2025,
+      "model": "XGBoost",
+      "seed": 17,
+      "rank_ic": 0.0410017011239366
+    },
+    {
+      "year": 2025,
+      "model": "XGBoost",
+      "seed": 29,
+      "rank_ic": 0.0432655453763553
+    },
+    {
+      "year": 2025,
+      "model": "XGBoost",
+      "seed": 43,
+      "rank_ic": 0.0376148481627276
+    }
+  ],
+  "limitations": [
+    "Fixed 60-stock historical CSI300 cohort, not all A-shares or a dynamically reconstituted index; a single cohort size and five-day horizon were studied.",
+    "Constituents were requested as of 2018-01-02; provider update dates and all selected codes are preserved. Historical vendor corrections remain possible.",
+    "The same training-only median imputer and scaler workflow is fitted separately per model/fold. Daily feature ranks use only signal-date eligible stocks.",
+    "Forward returns are next-session adjusted open to the adjusted open five sessions later. Excess returns subtract the equally weighted observed eligible-cohort return; this is not CSI300 index excess return.",
+    "Final six signal dates per annual fold can lose forward-label coverage; these observations are excluded from predictive metrics, never from portfolio candidate selection on the basis of future returns.",
+    "Backtests are an OHLC execution proxy. The conservative 9.5% open-gap screen is not an exact historical exchange price-limit model (including ChiNext changes). No order book, impact, participation cap, or lot-size model is included.",
+    "Suspended or screened orders remain unfilled. Missing held prices are forward-filled for valuation only. Delisting/merger terminal proceeds are unknown: stale position-days and remaining invested terminal weight must be inspected; proxy returns may be biased.",
+    "One cost scenario includes all friction as a constant per traded side; actual commissions, sell-side stamp tax, and spread vary over time. Sharpe uses zero risk-free rate and 252 sessions/year.",
+    "Intervals use 20-date circular moving blocks and 1,000 resamples; paired comparisons are unadjusted exploratory intervals, not multiplicity-controlled hypothesis tests.",
+    "Tree model headlines average three predetermined seeds; linear models are deterministic. Hyperparameters are chosen on the preceding validation year only. Prior test years become historical training/validation data in later folds.",
+    "StockMixer and LSTM were deliberately excluded. No automated test suite was run because project instructions require an explicit testing request."
+  ]
+}

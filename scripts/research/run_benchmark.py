@@ -95,6 +95,8 @@ def main():
     p.add_argument("--cost-bps", type=float, default=10.0, help="双边换手成本假设（基点）")
     p.add_argument("--device", default=None, choices=[None, "mps", "cuda", "cpu"])
     args = p.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
 
     models = [m.strip() for m in args.models.split(",") if m.strip()]
     unknown = set(models) - set(ALL_MODELS)
@@ -252,4 +254,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

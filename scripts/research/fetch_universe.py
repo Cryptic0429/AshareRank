@@ -32,6 +32,8 @@ def main():
     p.add_argument("--update", action="store_true",
                    help="增量更新已有文件（补最新交易日），而非跳过")
     args = p.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
 
     cons = fetch_index_constituents(args.pool)
     print(f"{args.pool} 成分股 {len(cons)} 只")
@@ -45,4 +47,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

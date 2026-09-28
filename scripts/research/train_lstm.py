@@ -27,6 +27,8 @@ def main():
     p.add_argument("--hidden-size", type=int, default=64)
     p.add_argument("--epochs-per-fold", type=int, default=8)
     args = p.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
 
     cfg = LSTMConfig(window=args.window, hidden_size=args.hidden_size,
                      epochs_per_fold=args.epochs_per_fold)
@@ -34,4 +36,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

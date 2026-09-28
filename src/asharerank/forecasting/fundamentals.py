@@ -5,7 +5,8 @@
   （分别被限到 1 次/小时 与完全无权限），故改用 akshare 免费的
   stock_financial_analysis_indicator（逐股票、按季度）。
 - 财报"日期"列是报告期（如 2024-03-31），不是公告日；为避免未来函数，
-  统一加保守滞后 REPORT_LAG_DAYS 天作为"信息可得日"，之后才允许被当日特征使用。
+  旧数据以 REPORT_LAG_DAYS 天估计信息可得日，这不是实际公告日，不能保证时点正确。
+  使用该路径的结果只能作为探索性分析，不能作为无泄露的实证证据。
 """
 from __future__ import annotations
 
@@ -33,7 +34,7 @@ COLUMN_MAP: dict[str, str] = {
     "销售净利率(%)": "net_margin",
 }
 FEATURE_COLS = list(COLUMN_MAP.values())
-REPORT_LAG_DAYS = 45  # 财报公告相对报告期的保守滞后（避免用未公开信息，即防未来函数）
+REPORT_LAG_DAYS = 45  # 历史假设；不是已核实的公告日期，也不保证没有前视偏差
 
 
 def _path(ts_code: str) -> Path:
@@ -104,7 +105,12 @@ def load_fundamentals(codes: list[str] | None = None) -> pd.DataFrame:
         paths = [p for p in paths if p.stem in wanted]
     if not paths:
         return pd.DataFrame(columns=["avail_date", "ts_code", *FEATURE_COLS])
-    frames = [pd.read_parquet(p) for p in paths]
+    from asharerank.research_record import register_input
+    frames = []
+    for path in paths:
+        frame = pd.read_parquet(path)
+        register_input(path, frame, role='fundamentals_assumed_publication_lag_not_verified')
+        frames.append(frame)
     return pd.concat(frames, ignore_index=True)
 
 

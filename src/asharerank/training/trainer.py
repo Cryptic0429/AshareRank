@@ -80,7 +80,11 @@ def _save_artifacts(
     model.save(destination / f"model{model_suffix}")
     joblib.dump(adapter, destination / "adapter.joblib")
     result.predictions.to_parquet(destination / "test_predictions.parquet", index=False)
+    from asharerank.research_record import environment_record, input_manifest
     manifest = {
+        **environment_record(),
+        "run_id": run_id,
+        "data_manifest": input_manifest(),
         "model_name": result.model_name,
         "created_at": datetime.now().isoformat(timespec="seconds"),
         "experiment_config": asdict(experiment_config),

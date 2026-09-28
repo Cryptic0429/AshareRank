@@ -32,6 +32,8 @@ def main() -> None:
     parser.add_argument("--top-k", type=int, default=10)
     parser.add_argument("--no-save", action="store_true")
     args = parser.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
 
     panel = load_panel()
     stock_limit = min(args.max_stocks, PANEL_STOCK_LIMIT)
@@ -76,4 +78,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

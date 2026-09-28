@@ -14,6 +14,22 @@ The Chinese/English project presentation lives in [`website/`](website/README.md
 
 ## Research workflow
 
+The first completed study compares Ridge, Elastic Net, Random Forest, LightGBM and XGBoost, plus momentum, on 60 stocks selected from the **2018 historical CSI300 universe**. It uses 130,505 real BaoStock daily rows and tests 2023–2025 with purged expanding training windows. StockMixer is deferred.
+
+- [中文报告与图表](reports/baselines/20260928T065633Z_simple_baselines/README.md) · [English report](reports/baselines/20260928T065633Z_simple_baselines/README.en.md)
+- [Frozen protocol](docs/baseline_protocol.md) · [Configuration](configs/public_baselines.json) · [Aggregate metrics and provenance](reports/baselines/20260928T065633Z_simple_baselines/summary.json)
+
+![Out-of-sample model comparison](reports/baselines/20260928T065633Z_simple_baselines/ranking.png)
+
+Elastic Net has the largest observed mean RankIC (0.0571), but results depend on period, costs and rebalance timing. Portfolio figures are execution proxies with explicit suspension, price-screen and delisting limitations, not verified tradable returns.
+
+```powershell
+python -m pip install -e ".[research]"
+python scripts/research/run_public_baselines.py --config configs/public_baselines.json
+```
+
+Raw data, fitted models and predictions stay in ignored `data/` and `runs/`. Only curated findings and reproducibility metadata are committed.
+
 ```text
 provider data → validated market panel → point-in-time features and labels
               → purged chronological splits → model runs

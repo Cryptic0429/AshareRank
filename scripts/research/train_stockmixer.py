@@ -73,6 +73,8 @@ def main():
                   help="留空自动检测（优先 mps）")
     p.add_argument("--seed", type=int, default=42)
     args = p.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
 
     freeze_codes = None
     if args.freeze_codes_from_ckpt:
@@ -118,4 +120,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

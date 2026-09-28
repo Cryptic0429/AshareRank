@@ -29,6 +29,8 @@ def main():
                    help="注册状态：候选=不影响当前生产模型；已部署=直接替换生产模型")
     p.add_argument("--out", required=True, help="结果摘要输出 json 路径")
     args = p.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
 
     info = json.loads(Path(args.universe_file).read_text())
     result = train_aligned_candidate(
@@ -43,4 +45,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

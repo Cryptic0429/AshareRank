@@ -144,7 +144,7 @@ def _load_cache(path, max_stale_days: int = 3) -> tuple[pd.DataFrame | None, str
     if cached.empty or (dt.date.today() - cached.index[-1].date()).days > max_stale_days:
         return None, "synthetic"
     src_file = _cache_src_path(path)
-    src = src_file.read_text().strip() if src_file.exists() else "akshare"
+    src = src_file.read_text().strip() if src_file.exists() else "unknown"
     return cached, src
 
 

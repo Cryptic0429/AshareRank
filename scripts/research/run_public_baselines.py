@@ -13,6 +13,8 @@ def main():
     parser.add_argument('--config', type=Path, default=ROOT / 'configs/public_baselines.json')
     parser.add_argument('--download-only', action='store_true')
     args = parser.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
     config = json.loads(args.config.read_text(encoding='utf-8'))
     from asharerank.data.public_history import acquire
     manifest = acquire(config, ROOT)
@@ -23,4 +25,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

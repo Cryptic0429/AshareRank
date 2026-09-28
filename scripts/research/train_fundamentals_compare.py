@@ -18,4 +18,5 @@ logging.basicConfig(level=logging.INFO,
 
 
 if __name__ == "__main__":
-    run_fundamentals_compare()
+    from asharerank.research_record import run_recorded
+    run_recorded(run_fundamentals_compare)

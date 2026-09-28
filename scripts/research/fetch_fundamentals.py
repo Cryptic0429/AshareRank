@@ -37,6 +37,8 @@ def main():
     p.add_argument("--csi300-missing", action="store_true",
                    help="只下载沪深300中尚未缓存基本面的股票（优先把覆盖率拉到 90%+）")
     args = p.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
 
     if args.csi300_missing:
         have = set(list_fund_codes())
@@ -61,4 +63,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

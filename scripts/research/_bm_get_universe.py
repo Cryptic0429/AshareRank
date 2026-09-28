@@ -32,6 +32,8 @@ def main():
     p.add_argument("--label-horizon", type=int, default=5)
     p.add_argument("--out", required=True, help="输出 json 路径")
     args = p.parse_args()
+    from asharerank.research_record import record_arguments
+    record_arguments(args)
 
     cfg = StockMixerConfig(
         pool=args.pool, max_stocks=args.max_stocks,
@@ -43,4 +45,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from asharerank.research_record import run_recorded
+    run_recorded(main)

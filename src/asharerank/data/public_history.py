@@ -113,12 +113,15 @@ def acquire(config: dict, root: Path) -> Path:
 def load_snapshot(manifest_path: Path):
     manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
     frames = []
+    from asharerank.research_record import register_input
     for item in manifest['files']:
         path = manifest_path.parent / item['path']
         if sha256(path) != item['sha256']:
             raise ValueError(f'Changed snapshot: {path.name}')
         if path.suffix == '.parquet':
-            frames.append(pd.read_parquet(path))
+            frame = pd.read_parquet(path)
+            register_input(path, frame.assign(_provider=item['provider'], _retrieved_at=item['retrieved_at_utc'], _adjustment=item['adjustment'], _data_kind=item['data_kind']))
+            frames.append(frame)
     calendar = pd.read_csv(manifest_path.parent / 'calendar.csv')
     dates = pd.DatetimeIndex(pd.to_datetime(calendar.loc[calendar.is_trading_day == 1, 'calendar_date']))
     return pd.concat(frames, ignore_index=True), dates, manifest

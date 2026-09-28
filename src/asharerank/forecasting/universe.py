@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import logging
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -11,6 +12,15 @@ import pandas as pd
 from asharerank.settings import PREDICT_START_DATE, UNIVERSE_DIR
 
 logger = logging.getLogger(__name__)
+
+
+def _with_source(frame: pd.DataFrame, provider: str) -> pd.DataFrame:
+    frame = frame.copy()
+    frame['_provider'] = provider
+    frame['_retrieved_at'] = datetime.now(timezone.utc).isoformat()
+    frame['_adjustment'] = 'qfq'
+    frame['_data_kind'] = 'real'
+    return frame
 
 # 指数池：pool 名 → (中证指数代码, 展示名)
 INDEX_POOLS: dict[str, tuple[str, str]] = {
@@ -135,7 +145,7 @@ def _fetch_ohlcv_tushare(ts_code: str, start: str, end: str) -> pd.DataFrame | N
         out = out[keep].copy()
         out["date"] = pd.to_datetime(out["date"])
         out["ts_code"] = ts_code
-        return out.sort_values("date").reset_index(drop=True)
+        return _with_source(out.sort_values("date").reset_index(drop=True), 'tushare.pro_bar')
     except Exception as exc:
         # pro_bar 频控时异常信息常仅为 "ERROR."，一并冷却改走 akshare
         _disable_tushare(90.0)
@@ -157,6 +167,7 @@ def _fetch_ohlcv_akshare(ts_code: str, start: str, end: str,
             df = ak.stock_zh_a_daily(symbol=sina_sym, start_date=start,
                                     end_date=end, adjust="qfq")
             if df is not None and not df.empty:
+                provider = 'akshare.sina.stock_zh_a_daily'
                 break
         except Exception as exc:
             last_err = exc
@@ -164,6 +175,7 @@ def _fetch_ohlcv_akshare(ts_code: str, start: str, end: str,
             df = ak.stock_zh_a_hist(symbol=em_sym, period="daily",
                                     start_date=start, end_date=end, adjust="qfq")
             if df is not None and not df.empty:
+                provider = 'akshare.eastmoney.stock_zh_a_hist'
                 break
         except Exception as exc:
             last_err = exc
@@ -185,7 +197,7 @@ def _fetch_ohlcv_akshare(ts_code: str, start: str, end: str,
     df = df[keep].copy()
     df["date"] = pd.to_datetime(df["date"])
     df["ts_code"] = ts_code
-    return df.sort_values("date").reset_index(drop=True)
+    return _with_source(df.sort_values("date").reset_index(drop=True), provider)
 
 
 def fetch_stock_ohlcv(ts_code: str, start: str = PREDICT_START_DATE,
@@ -395,7 +407,12 @@ def load_panel(codes: list[str] | None = None) -> pd.DataFrame:
     if not paths:
         raise FileNotFoundError(
             f"未找到行情 Parquet，请先运行: python scripts/research/fetch_universe.py")
-    frames = [pd.read_parquet(p) for p in paths]
+    from asharerank.research_record import register_input
+    frames = []
+    for path in paths:
+        frame = pd.read_parquet(path)
+        register_input(path, frame)
+        frames.append(frame)
     panel = pd.concat(frames, ignore_index=True)
     panel["date"] = pd.to_datetime(panel["date"])
     return panel.sort_values(["date", "ts_code"]).reset_index(drop=True)
